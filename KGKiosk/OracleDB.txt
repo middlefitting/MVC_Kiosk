@@ -1,0 +1,27 @@
+drop table pizzaMember;
+
+CREATE TABLE pizzaMember(
+    id varchar2(15) PRIMARY KEY,
+    pwd varchar2(10),
+    name varchar2(50),
+    email varchar2(50),
+    homeAddress varchar2(50),
+    joinDate DATE DEFAULT SYSDATE
+    
+);
+
+INSERT INTO pizzaMember
+values('kang', '1234', '강채윤', 'kang@gmail.com', 'seoul', sysdate);
+
+INSERT INTO pizzaMember
+values('park', '1234', '박상욱', 'park@naver.com', 'seoul', sysdate);
+
+INSERT INTO pizzaMember
+values('lee', '1234', '이영한', 'lee@gmail.com', 'seoul', sysdate);
+
+INSERT INTO pizzaMember
+values('chung', '1234', '정승철', 'chung@naver.com', 'seoul', sysdate);
+
+commit;
+
+select * from pizzaMember	order by joinDate desc;
