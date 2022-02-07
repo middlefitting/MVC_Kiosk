@@ -48,5 +48,14 @@
 		select * from pizzaMember	
 		where id=#{id} and pwd=#{pwd}		
 	]]>
+  
   </select>
+    <select id="adminLoginByIdPwd"  resultType="memberVO"   parameterType="memberVO" >
+	<![CDATA[
+		select * from pizzaAdmin	
+		where id=#{id} and pwd=#{pwd}		
+	]]>
+  </select>
+
+  
 </mapper>
