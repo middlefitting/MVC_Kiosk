@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.complimentPost">
+	<resultMap id="complimentResult" type="complimentPostVO">
+		<result property="complaintPostKey" column="complaintPostKey" />
+        <result property="complaintPostId" column="complaintPostId" />
+        <result property="complaintPostTitle" column="complaintPostTitle" />
+        <result property="complaintPostBody" column="complaintPostBody" />
+        <result property="complaintWriteDate" column="complaintWriteDate" />
+	</resultMap> 
+
+	<select id="selectAllComplimentPostList" resultMap="complimentResult">
+      <![CDATA[
+         select * from complimentPost	order by complaintWriteDate	 	
+      ]]>
+	</select>
+	
+	<select id="selectSingleComplimentPost" parameterType="String" resultMap="complimentPostVO">
+      <![CDATA[
+         select * from complimentPost 
+         where complaintPostKey=#{complaintPostKey}	 	
+      ]]>
+	</select>
+    
+  <insert id="insertComplimentPost"  parameterType="complimentPostVO">
+		<![CDATA[
+		 insert into complimentPost(complaintPostKey, complaintPostId, complaintPostTitle, complaintPostBody, complaintWriteDate)
+		 values(#{complaintPostKey}, #{complaintPostId}, #{complaintPostTitle}, #{complaintPostBody}, #{complaintWriteDate})
+		]]>      
+	</insert>
+	
+   
+   <update id="updateComplimentPost"  parameterType="complimentPostVO">
+     <![CDATA[
+	     update complimentPost
+	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintWriteDate=#{complaintWriteDate}
+	     where
+	     complaintPostKey=#{complaintPostKey}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteComplimentPost"  parameterType="String">
+	<![CDATA[
+	   delete from complimentPost
+	   where
+	   complaintPostKey=#{complaintPostKey}
+	]]>      
+  </delete>
+
+</mapper>
