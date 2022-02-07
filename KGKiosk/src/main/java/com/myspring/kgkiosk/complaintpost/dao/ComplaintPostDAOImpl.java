@@ -17,7 +17,7 @@ public class ComplaintPostDAOImpl implements ComplaintPostDAO{
 	
 	@Override
 	public List selectAllComplaintPostList() throws DataAccessException {
-		List<ComplaintPostVO> complaintPostList = sqlSession.selectList("mapper.complaintPost.selectAllcomplaintPostList");
+		List<ComplaintPostVO> complaintPostList = sqlSession.selectList("mapper.complaintPost.selectAllComplaintPostList");
 		return complaintPostList;		
 	}
 

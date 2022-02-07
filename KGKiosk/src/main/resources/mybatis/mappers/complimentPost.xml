@@ -3,8 +3,8 @@
       PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.complimentPost">
-	<resultMap id="complimentResult" type="complimentPostVO">
+<mapper namespace="mapper.complaintPost">
+	<resultMap id="complaintResult" type="complaintPostVO">
 		<result property="complaintPostKey" column="complaintPostKey" />
         <result property="complaintPostId" column="complaintPostId" />
         <result property="complaintPostTitle" column="complaintPostTitle" />
@@ -12,39 +12,39 @@
         <result property="complaintWriteDate" column="complaintWriteDate" />
 	</resultMap> 
 
-	<select id="selectAllComplimentPostList" resultMap="complimentResult">
+	<select id="selectAllComplaintPostList" resultMap="complaintResult">
       <![CDATA[
-         select * from complimentPost	order by complaintWriteDate	 	
+         select * from complaintPost order by complaintWriteDate	 	
       ]]>
 	</select>
 	
-	<select id="selectSingleComplimentPost" parameterType="String" resultMap="complimentPostVO">
+	<select id="selectSingleComplaintPost" parameterType="String" resultType="complaintPostVO">
       <![CDATA[
-         select * from complimentPost 
+         select * from complaintPost 
          where complaintPostKey=#{complaintPostKey}	 	
       ]]>
 	</select>
     
-  <insert id="insertComplimentPost"  parameterType="complimentPostVO">
+  <insert id="insertComplaintPost"  parameterType="complaintPostVO">
 		<![CDATA[
-		 insert into complimentPost(complaintPostKey, complaintPostId, complaintPostTitle, complaintPostBody, complaintWriteDate)
+		 insert into complaintPost(complaintPostKey, complaintPostId, complaintPostTitle, complaintPostBody, complaintWriteDate)
 		 values(#{complaintPostKey}, #{complaintPostId}, #{complaintPostTitle}, #{complaintPostBody}, #{complaintWriteDate})
 		]]>      
 	</insert>
 	
    
-   <update id="updateComplimentPost"  parameterType="complimentPostVO">
+   <update id="updateComplaintPost"  parameterType="complaintPostVO">
      <![CDATA[
-	     update complimentPost
+	     update complaintPost
 	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintWriteDate=#{complaintWriteDate}
 	     where
 	     complaintPostKey=#{complaintPostKey}
       ]]>      
    </update> 
      
-   <delete id="deleteComplimentPost"  parameterType="String">
+   <delete id="deleteComplaintPost"  parameterType="String">
 	<![CDATA[
-	   delete from complimentPost
+	   delete from complaintPost
 	   where
 	   complaintPostKey=#{complaintPostKey}
 	]]>      

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import oracle.sql.TIMESTAMP;
 
-@Component("complaintPost")
+@Component("complaintPostVO")
 public class ComplaintPostVO {
 	private String complaintPostKey;
 	private String complaintPostId;
@@ -12,18 +12,18 @@ public class ComplaintPostVO {
 	private String complaintPostBody;
 	private TIMESTAMP complaintWriteDate;
 	
-	public ComplaintPostVO() {
-		
-	}
-	
-	public ComplaintPostVO(String complaintPostKey, String complaintPostId, String complaintPostTitle,
-							String complaintPostBody, TIMESTAMP complaintWriteDate) {
-		this.complaintPostKey = complaintPostKey;
-		this.complaintPostId = complaintPostId;
-		this.complaintPostTitle = complaintPostTitle;
-		this.complaintPostBody = complaintPostBody;
-		this.complaintWriteDate = complaintWriteDate;
-	}
+	/*
+	 * public ComplaintPostVO() {
+	 * 
+	 * }
+	 * 
+	 * public ComplaintPostVO(String complaintPostKey, String complaintPostId,
+	 * String complaintPostTitle, String complaintPostBody, TIMESTAMP
+	 * complaintWriteDate) { this.complaintPostKey = complaintPostKey;
+	 * this.complaintPostId = complaintPostId; this.complaintPostTitle =
+	 * complaintPostTitle; this.complaintPostBody = complaintPostBody;
+	 * this.complaintWriteDate = complaintWriteDate; }
+	 */
 
 	public String getComplaintPostKey() {
 		return complaintPostKey;

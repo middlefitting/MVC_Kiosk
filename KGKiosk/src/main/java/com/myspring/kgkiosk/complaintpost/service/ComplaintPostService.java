@@ -2,12 +2,12 @@ package com.myspring.kgkiosk.complaintpost.service;
 
 import java.util.List;
 
-import com.myspring.kgkiosk.complaintpost.vo.ComplimentPostVO;
+import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
 
-public interface ComplimentPostService {
-	public List<ComplimentPostVO> listAllComplimentPostList() throws Exception;
-	public ComplimentPostVO viewSingleComplimentPost(String complaintPostKey) throws Exception;
-	public int addComplimentPost(ComplimentPostVO complimentPostVO) throws Exception;
-	public int modifyComplimentPost(ComplimentPostVO complimentPostVO) throws Exception;
-	public int removeComplimentPost(String complaintPostKey) throws Exception;
+public interface ComplaintPostService {
+	public List<ComplaintPostVO> listAllComplaintPostList() throws Exception;
+	public ComplaintPostVO viewSingleComplaintPost(String complaintPostKey) throws Exception;
+	public int addComplaintPost(ComplaintPostVO complaintPostVO) throws Exception;
+	public int modifyComplaintPost(ComplaintPostVO complaintPostVO) throws Exception;
+	public int removeComplaintPost(String complaintPostKey) throws Exception;
 }

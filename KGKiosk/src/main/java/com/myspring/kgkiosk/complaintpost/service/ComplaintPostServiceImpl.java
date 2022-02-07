@@ -5,40 +5,40 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.myspring.kgkiosk.complaintpost.dao.ComplimentPostDAO;
+import com.myspring.kgkiosk.complaintpost.dao.ComplaintPostDAO;
 import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
 
 
-@Service("ComplaintPostService")
-public class ComplaintPostServiceImpl implements ComplimentPostService{
+@Service("complaintPostService")
+public class ComplaintPostServiceImpl implements ComplaintPostService{
 	@Autowired
-	private ComplimentPostDAO complimentPostDAO;
+	private ComplaintPostDAO complaintPostDAO;
 	
 	@Override
-	public List<ComplaintPostVO> listAllComplimentPostList() throws Exception {
-		List<ComplaintPostVO> complimentPostList =  complimentPostDAO.selectAllComplimentPostList();
-        return complimentPostList;
+	public List<ComplaintPostVO> listAllComplaintPostList() throws Exception {
+		List<ComplaintPostVO> complaintPostList =  complaintPostDAO.selectAllComplaintPostList();
+        return complaintPostList;
 	}
 
 	@Override
-	public ComplaintPostVO viewSingleComplimentPost(String complaintPostKey) throws Exception {
-		ComplaintPostVO complimentPostVO = complimentPostDAO.selectSingleComplimentPost(complaintPostKey);
-		return complimentPostVO;
+	public ComplaintPostVO viewSingleComplaintPost(String complaintPostKey) throws Exception {
+		ComplaintPostVO complaintPostVO = complaintPostDAO.selectSingleComplaintPost(complaintPostKey);
+		return complaintPostVO;
 	}
 
 	@Override
-	public int addComplimentPost(ComplaintPostVO complimentPostVO) throws Exception {
-		return complimentPostDAO.insertComplimentPost(complimentPostVO);
+	public int addComplaintPost(ComplaintPostVO complaintPostVO) throws Exception {
+		return complaintPostDAO.insertComplaintPost(complaintPostVO);
 	}
 
 	@Override
-	public int modifyComplimentPost(ComplaintPostVO complimentPostVO) throws Exception {
-		return complimentPostDAO.updateComplimentPost(complimentPostVO);
+	public int modifyComplaintPost(ComplaintPostVO complaintPostVO) throws Exception {
+		return complaintPostDAO.updateComplaintPost(complaintPostVO);
 	}
 
 	@Override
-	public int removeComplimentPost(String complaintPostKey) throws Exception {
-		return complimentPostDAO.deleteComplimentPost(complaintPostKey);
+	public int removeComplaintPost(String complaintPostKey) throws Exception {
+		return complaintPostDAO.deleteComplaintPost(complaintPostKey);
 	}
 
 }
