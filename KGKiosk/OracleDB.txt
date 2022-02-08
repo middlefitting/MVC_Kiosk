@@ -25,3 +25,27 @@ values('chung', '1234', '정승철', 'chung@naver.com', 'seoul', sysdate);
 commit;
 
 select * from pizzaMember	order by joinDate desc;
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+DROP TABLE pizzaAdmin;
+CREATE TABLE pizzaAdmin(
+    id varchar2(15) PRIMARY KEY,
+    pwd varchar2(10)
+);
+
+INSERT INTO pizzaAdmin
+values('admin', '1234');
+
+commit;
+
+Select * from pizzaAdmin;
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+

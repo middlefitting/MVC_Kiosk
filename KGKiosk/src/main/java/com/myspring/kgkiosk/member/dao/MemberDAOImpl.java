@@ -20,5 +20,29 @@ public class MemberDAOImpl implements MemberDAO {
 		  MemberVO vo = sqlSession.selectOne("mapper.member.loginByIdPwd",memberVO);
 		return vo;
 	}
+	
+	@Override
+	public MemberVO adminLoginByIdPwd(MemberVO memberVO) throws DataAccessException {
+		MemberVO vo = sqlSession.selectOne("mapper.member.adminLoginByIdPwd",memberVO);
+		return vo;
+	}
+
+	@Override
+	public int insertMember(MemberVO memberVO) throws DataAccessException {
+		int result = sqlSession.insert("mapper.member.insertMember", memberVO);
+		return result;
+	}
+	
+	@Override
+	public int deleteMember(String id) throws DataAccessException {
+		int result = sqlSession.delete("mapper.member.deleteMember", id);
+		return result;
+	}
+
+	@Override
+	public int updateMember(MemberVO memberVO) throws DataAccessException {
+		int result = sqlSession.update("mapper.member.updateMember", memberVO);
+		return result;
+	}
 
 }

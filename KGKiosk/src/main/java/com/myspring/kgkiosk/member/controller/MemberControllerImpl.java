@@ -34,6 +34,14 @@ public class MemberControllerImpl   implements MemberController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@RequestMapping(value = {"/adminMain.do"}, method = RequestMethod.GET)
+	private ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response) {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		return mav;
+	}
 
 	@Override
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
@@ -41,12 +49,21 @@ public class MemberControllerImpl   implements MemberController {
 				              RedirectAttributes rAttr,
 		                       HttpServletRequest request, HttpServletResponse response) throws Exception {
 	ModelAndView mav = new ModelAndView();
+	memberVO = memberService.adminLogin(member);
+	if(memberVO != null) {
+	    HttpSession session = request.getSession();
+	    session.setAttribute("member", memberVO);
+	    session.setAttribute("isLogOn", true);
+	    mav.setViewName("redirect:/adminMain.do");
+	    return mav;
+	}
+	
+	
 	memberVO = memberService.login(member);
 	if(memberVO != null) {
 	    HttpSession session = request.getSession();
 	    session.setAttribute("member", memberVO);
 	    session.setAttribute("isLogOn", true);
-	    //mav.setViewName("redirect:/member/listMembers.do");
 	    String action = (String)session.getAttribute("action");
 	    session.removeAttribute("action");
 	    if(action!= null) {
@@ -86,6 +103,53 @@ public class MemberControllerImpl   implements MemberController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+
+	@Override
+	@RequestMapping(value="/member/addMember.do", method= RequestMethod.POST)
+	public ModelAndView addMember(@ModelAttribute("member") MemberVO member, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("html/text;charset=uft-8");
+		int result = 0;
+		result = memberService.addMember(member);
+		ModelAndView mav = new ModelAndView("redirect:/main.do");
+		mav.addObject("result",result);
+		if(result== 0) {
+		       mav.setViewName("redirect:/member/addMemberForm");
+		    }else {
+		       mav.setViewName("redirect:/main.do");	
+		    }
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.GET)
+	public ModelAndView removeMember(@RequestParam("id") String id, 
+			           HttpServletRequest request, HttpServletResponse response) throws Exception{
+		request.setCharacterEncoding("utf-8");
+		memberService.removeMember(id);
+		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value="/member/modifyMember.do", method= RequestMethod.POST)
+	public ModelAndView modifyMember(@ModelAttribute("member") MemberVO member, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("html/text;charset=uft-8");
+		int result = 0;
+		result = memberService.modifyMember(member);
+		ModelAndView mav = new ModelAndView("redirect:/main.do");
+		mav.addObject("result",result);
+		if(result== 0) {
+		       mav.setViewName("redirect:/member/modifyMemberForm");
+		    }else {
+		       mav.setViewName("redirect:/main.do");	
+		    }
+		return mav;
+	}
+	
 
 
 }
