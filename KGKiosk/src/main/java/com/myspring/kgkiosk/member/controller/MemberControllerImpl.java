@@ -127,15 +127,10 @@ public class MemberControllerImpl   implements MemberController {
 	public ModelAndView removeMember(@RequestParam("id") String id, 
 			           HttpServletRequest request, HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
-<<<<<<< HEAD
-		memberService.removeMember(id);
-		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
-=======
 		int result = 0;
 		result = memberService.removeMember(id);
 		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
 		mav.addObject("result", result);
->>>>>>> middleTopic
 		return mav;
 	}
 	
