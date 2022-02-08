@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.eventPost">
+	<resultMap id="EventResult" type="eventPostVO">
+		<result property="eventKey" column="eventKey" />
+        <result property="eventImgSrc" column="eventImgSrc" />
+        <result property="eventTitle" column="eventTitle" />
+        <result property="eventBody" column="eventBody" />
+        <result property="eventWriteDate" column="eventWriteDate" />
+	</resultMap> 
+
+	<select id="selectAllEventPostList" resultMap="EventResult">
+      <![CDATA[
+         select * from eventPost order by eventWriteDate desc 
+         
+      ]]>
+	</select>
+	
+	<select id="selectSingleEventPost" parameterType="String" resultType="eventPostVO">
+      <![CDATA[
+         select * from eventPost 
+         where eventKey=#{eventKey}
+      ]]>
+	</select>
+    
+  <insert id="insertEventPost"  parameterType="eventPostVO">
+		<![CDATA[
+		 insert into eventPost(eventKey, eventImgSrc, eventTitle, eventBody, eventWriteDate)
+		 values(#{eventKey}, #{eventImgSrc}, #{eventTitle}, #{eventBody}, #{eventWriteDate})
+		]]>      
+	</insert>
+	
+   
+   <update id="updateEventPost"  parameterType="eventPostVO">
+     <![CDATA[
+	     update eventPost
+	     set eventImgSrc=#{eventImgSrc}, eventTitle=#{eventTitle}, eventBody=#{eventBody}, eventWriteDate=#{eventWriteDate}
+	     where
+	     eventKey=#{eventKey}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteEventPost"  parameterType="String">
+	<![CDATA[
+	   delete from eventPost
+	   where
+	   eventKey=#{eventKey}
+	]]>      
+  </delete>
+
+</mapper>
