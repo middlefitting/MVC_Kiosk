@@ -35,8 +35,6 @@
       </td>  
     </tr>
   </c:when>
-<<<<<<< HEAD
-=======
   <c:when test="${ComplaintPostLists !=null }" >
     <tr  height="10">
       <td colspan="4">
@@ -46,7 +44,6 @@
       </td>  
     </tr>
   </c:when>
->>>>>>> middleTopic
 </c:choose>
 </table>
 </body>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.food">
+	<resultMap id="foodResult" type="foodVO">
+		<result property="foodKey" column="foodKey" />
+        <result property="foodCategory" column="foodCategory" />
+        <result property="foodName" column="foodName" />
+        <result property="foodPrice" column="foodPrice" />
+        <result property="foodStock" column="foodStock" />
+        <result property="foodInfo" column="foodInfo" />
+        <result property="foodImg" column="foodImg" />
+	</resultMap> 
+
+	<select id="selectAllFoodList" resultMap="foodResult">
+      <![CDATA[
+         select * from food	order by foodCategory
+      ]]>
+	</select>
+	
+	<select id="selectAllCategoryFoodList" parameterType="foodVO" resultMap="foodResult">
+      <![CDATA[
+         select * from food 
+         where foodCategory=#{foodCategory}
+      ]]>
+	</select>
+	
+	<select id="selectSingleFood" parameterType="foodVO" resultType="foodVO">
+      <![CDATA[
+         select * from food 
+         where foodKey=#{foodKey}
+      ]]>
+	</select>
+    
+  <insert id="insertFood"  parameterType="foodVO">
+		<![CDATA[
+		 insert into food(foodKey, foodCategory, foodName, foodPrice, foodStock, foodInfo, foodImg)
+		 values(#{foodKey}, #{foodCategory}, #{foodName}, #{foodPrice}, #{foodStock}, #{foodInfo}, #{foodImg})
+		]]>      
+	</insert>
+	
+   
+   <update id="updateFood"  parameterType="foodVO">
+     <![CDATA[
+	     update food
+	     set foodCategory=#{foodCategory}, foodName=#{foodName}, foodPrice=#{foodPrice}, foodStock=#{foodStock}, foodInfo=#{foodInfo}, foodImg=#{foodImg}
+	     where
+	     foodKey=#{foodKey}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteFood"  parameterType="foodVO">
+	<![CDATA[
+	   delete from food
+	   where
+	   foodKey=#{foodKey}
+	]]>      
+  </delete>
+  
+</mapper>
