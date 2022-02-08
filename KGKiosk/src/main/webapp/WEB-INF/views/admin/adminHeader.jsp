@@ -13,30 +13,26 @@
 <head>
   <meta charset="UTF-8">
 <title>관리자 헤더</title>
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/adminHeaderStyle.css">
 </head>
 <body>
 <table border=0  width="100%">
-  <tr>
+	<tr>
      <td>
 		<a href="${contextPath}/adminMain.do">
-			<img src="${contextPath}/resources/image/pizzaLogo.png"  />
+			<img src="${contextPath}/resources/image/pizzaLogo.png" height="80px" />
 		</a>
      </td>
-     <td>
-       <h1><font size=30>Pizza Hot 관리자 페이지</font></h1>
+     <td id="topMenu">
+     	<ul>
+     		<li class="topMenuLi"><a class="menuLink" href="">문의내역</a></li>
+     		<li class="topMenuLi"><a class="menuLink" href="">이벤트관리</a></li>
+     		<li class="topMenuLi"><a class="menuLink" href="">메뉴관리</a></li>
+     		<li class="topMenuLi"><a class="menuLink" href="">쿠폰관리</a></li>
+     	</ul>
      </td>
-     
      <td>
-       <!-- <a href="#"><h3>로그인</h3></a> -->
-       <c:choose>
-          <c:when test="${isLogOn == true  && member!= null}">
-            <h3>${member.name }님 안녕하세요</h3>
-            <a href="${contextPath}/member/logout.do"><h3>로그아웃</h3></a>
-          </c:when>
-<%--           <c:otherwise>
-	        <a href="${contextPath}/member/loginForm.do"><h3>로그인</h3></a>
-	      </c:otherwise> --%>
-	   </c:choose>     
+     	<a id="logout" href="${contextPath}/member/logout.do">로그아웃</a>
      </td>
   </tr>
 </table>

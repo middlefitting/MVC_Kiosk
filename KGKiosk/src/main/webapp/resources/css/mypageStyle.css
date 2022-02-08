@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.myPage {
+	padding:20px;
+	width:100%;
+	float:left;
+}
+.pageMenu {
+	margin:0 30px 10px 0;
+	height:200px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.subMenu {
+	width:300px;
+	height:120px;
+	margin: 0px 10px 0px 10px;
+	font-size: 15px;                    
+    font-weight: bold; 
+    text-align:center;
+    display:table;
+    border-radius: 10px;
+    transition: transform 300ms ease-in-out;
+    box-shadow: 5px 7px 6px 2px #c1c1c17d;
+}
+.subMenu:hover {
+	background-color:#ff9b6a80
+}
+.subMenu a {
+	display:table-cell;
+	vertical-align:middle;
+	color:#000000;
+}
+a:visited {text-decoration:none;}
+a:link {text-decoration:none;}
