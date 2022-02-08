@@ -49,3 +49,37 @@ Select * from pizzaAdmin;
 ----------------------------------------------------------------------------
 
 
+<<<<<<< HEAD
+=======
+drop table eventPost;
+
+CREATE TABLE eventPost(
+    eventKey varchar2(70) PRIMARY KEY,
+    eventImgSrc varchar2(100),
+    eventTitle varchar2(50),
+    eventBody varchar2(500),
+    eventWriteDate TIMESTAMP
+);
+
+INSERT INTO eventPost
+values('1234', 'c://img', '피자할인', '피자 할인을 진행합니다', sysdate);
+
+INSERT INTO eventPost
+values('12345' ,'c://img', '콜라무료', '음료 할인을 진행합니다', sysdate);
+
+INSERT INTO eventPost
+values('123456', 'c://img', '사이드할인', '사이드 할인을 진행합니다', sysdate);
+
+INSERT INTO eventPost
+values('1234567', 'c://img', '금액할인', '금액 할인을 진행합니다', sysdate);
+
+commit;
+
+select * from eventPost	order by eventWriteDate asc;
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+>>>>>>> middleTopic

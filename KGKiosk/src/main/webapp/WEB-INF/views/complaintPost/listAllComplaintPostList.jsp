@@ -35,6 +35,18 @@
       </td>  
     </tr>
   </c:when>
+<<<<<<< HEAD
+=======
+  <c:when test="${ComplaintPostLists !=null }" >
+    <tr  height="10">
+      <td colspan="4">
+         <p align="center">
+            <b><span style="font-size:9pt;">${ComplaintPostLists}</span></b>
+        </p>
+      </td>  
+    </tr>
+  </c:when>
+>>>>>>> middleTopic
 </c:choose>
 </table>
 </body>

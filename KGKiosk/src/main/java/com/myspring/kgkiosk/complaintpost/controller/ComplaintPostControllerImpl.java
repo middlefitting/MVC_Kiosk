@@ -34,7 +34,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		List ComplaintPostLists = complaintPostService.listAllComplaintPostList();
-		mav.addObject("complaintPost", ComplaintPostLists);
+		mav.addObject("ComplaintPostLists", ComplaintPostLists);
 		mav.setViewName(viewName);
 		return mav;
 	}
@@ -59,7 +59,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
 		result = complaintPostService.addComplaintPost(complaintPostVO);
-		mav.addObject("complaintPost", complaintPostVO);
+		mav.addObject("result", result);
 		mav.setViewName(viewName);
 		return mav;
 	}
@@ -72,7 +72,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
 		result = complaintPostService.modifyComplaintPost(complaintPostVO);
-		mav.addObject("complaintPost", complaintPostVO);
+		mav.addObject("result", result);
 		mav.setViewName(viewName);
 		return mav;
 	}
@@ -85,7 +85,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
 		result = complaintPostService.removeComplaintPost(complaintPostKey);
-		mav.addObject("complaintPost", complaintPostVO);
+		mav.addObject("result", result);
 		mav.setViewName(viewName);
 		return mav;
 	}
