@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+#topMenu {
+     height: 50px;  
+     width: 50vw;       /* [변경] 하위 메뉴와 동일하게 맞춤 */
+     position: relative;
+     background-color: #ffffff; /* [추가] 늘어난만큼 배경색도 보이도록 수정 */
+}
+#topMenu ul {           /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+    list-style-type: none;  
+    margin: 0px;            
+    padding: 0px;           
+}
+#topMenu ul li {            /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+    color: white;               
+    background-color: #ffffff;  
+    float: left;                
+    line-height: 30px;          
+    vertical-align: middle;     
+    text-align: center;         
+    -position: relative;         
+}
+.menuLink {           /* a 태그에 설정할 스타일 */
+    text-decoration:none;               
+    display: block;                     
+    width: 100px;                       
+    font-size: 18px;                    
+    font-weight: bold;           
+    color: #000000;     
+
+}
+
+.topMenuLi .menuLink:after {
+	display:block;
+	width:inherit;
+	content:'';
+	border-bottom: solid 2px #c00727;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+}
+.topMenuLi .menuLink:hover:after {
+	transform: scaleX(1);
+}
+.topMenuLi:hover .menuLink {    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+    color: #c00727;                 
+}
+
+
+#logout{
+	color:#c00727;
+	text-decoration:none;
+	cursor: pointer;
+}
+#logout:link { color:#c00727; }
+#logout:visited { color:#c00727; }
