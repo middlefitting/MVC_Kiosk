@@ -8,5 +8,6 @@
 		<typeAlias type="com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO"  alias="complaintPostVO" />
 		<typeAlias type="com.myspring.kgkiosk.eventpost.vo.EventPostVO"  alias="eventPostVO" />
 		<typeAlias type="com.myspring.kgkiosk.coupon.vo.CouponVO"  alias="couponVO" />
+		<typeAlias type="com.myspring.kgkiosk.food.vo.FoodVO"  alias="foodVO" />
 	</typeAliases>
 </configuration>

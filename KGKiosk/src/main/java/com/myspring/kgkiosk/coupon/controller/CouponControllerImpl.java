@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.kgkiosk.coupon.service.CouponService;
 import com.myspring.kgkiosk.coupon.vo.CouponVO;
 
-@Controller("CouponController")
+@Controller("couponController")
 public class CouponControllerImpl implements CouponController{
 
 	@Autowired

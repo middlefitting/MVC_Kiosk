@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.myspring.kgkiosk.coupon.vo.CouponVO;
 
-@Repository("counponDAO")
-public class CounponDAOImpl implements CouponDAO{
+@Repository("couponDAO")
+public class CouponDAOImpl implements CouponDAO{
 
 	@Autowired
 	private SqlSession sqlSession;
