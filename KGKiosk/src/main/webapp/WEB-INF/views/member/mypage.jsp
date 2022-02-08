@@ -21,7 +21,7 @@
 	</div>
 	<div class="pageMenu">
 		<div class="subMenu">
-			<a href="${contextPath}/complaintpost/addComplaintPost.do">
+			<a href="${contextPath}/complaintpost/addComplaintPostForm.do">
 				<img src="${contextPath}/resources/image/complaintIcon.png" height="40px">
 				<br>
 				문의

@@ -9,4 +9,10 @@
 	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/listAllComplaintPostList.jsp" />
 	</definition>
 	
+	<definition name="/complaintpost/addComplaintPostForm" extends="baseLayout">
+	      <put-attribute name="title" value="문의" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/addComplaintPostForm.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -24,9 +24,6 @@
 			<img src="${contextPath}/resources/image/pizzaLogo.png" height="80px" />
 		</a>
      </td>
-     <!-- <td>
-       <h1><font size=30>Pizza Hot</font></h1>
-     </td> -->
      <!-- 메뉴바 -->
      <td id="topMenu" >
      	<ul> 
@@ -55,15 +52,15 @@
 	<td id="login">
 		<c:choose>
 			<c:when test="${isLogOn == true  && member!= null}">
-				<h4>${member.name }님 <br> 안녕하세요</h4>
 				<a href="${contextPath}/member/mypage.do">
-					<img src="${contextPath}/resources/image/memberIcon.png" height="40px">
-				<!-- <h3>로그아웃</h3> --></a>
+					${member.name }님 <br> 안녕하세요 <br>
+					<img src="${contextPath}/resources/image/memberIcon.png" height="20px">
+				</a>
 			</c:when>
 			<c:otherwise>
 				<a href="${contextPath}/member/loginForm.do">
 					<img src="${contextPath}/resources/image/memberIcon.png" height="40px">
-				<!-- <h3>로그인</h3> --></a>
+				</a>
 			</c:otherwise>
 		</c:choose>     
 	</td>
