@@ -31,6 +31,38 @@ select * from pizzaMember	order by joinDate desc;
 ----------------------------------------------------------------------------
 
 
+drop table complaintPost;
+
+CREATE TABLE complaintPost(
+    complaintPostKey varchar2(70) PRIMARY KEY,
+    complaintPostId varchar2(15),
+    complaintPostTitle varchar2(50),
+    complaintPostBody varchar2(500),
+    complaintWriteDate TIMESTAMP 
+);
+
+INSERT INTO complaintPost
+values('kang_220206', 'kang', '맛이 없어도 너무 없어~', '맛이 너무 없습니다. 너무 맛이 없어요', sysdate);
+
+INSERT INTO complaintPost
+values('park_220206' ,'park', '가격이 너무 비싸~', '가격이 너무 비싸요. 50% 가격에 파셔야 할듯', '220206');
+
+INSERT INTO complaintPost
+values('lee_220206', 'lee', '환불 좀 해주세요', '환불 좀 해주세요. 이유는 묻지 마세요.', sysdate);
+
+INSERT INTO complaintPost
+values('chung_220206', 'chung', '피자가 너무 작아~', '피자가 너무 작아서 한입에 다 들어갈듯', '220209');
+
+commit;
+
+select  from complaintPost	order by complaintWriteDate asc;
+select  from complaintPost order by complaintWriteDate;
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
 DROP TABLE pizzaAdmin;
 CREATE TABLE pizzaAdmin(
     id varchar2(15) PRIMARY KEY,
@@ -46,11 +78,7 @@ Select * from pizzaAdmin;
 
 
 ----------------------------------------------------------------------------
-----------------------------------------------------------------------------
 
-
-<<<<<<< HEAD
-=======
 drop table eventPost;
 
 CREATE TABLE eventPost(
@@ -82,4 +110,3 @@ select * from eventPost	order by eventWriteDate asc;
 ----------------------------------------------------------------------------
 
 
->>>>>>> middleTopic

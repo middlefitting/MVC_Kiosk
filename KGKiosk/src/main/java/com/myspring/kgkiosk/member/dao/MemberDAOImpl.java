@@ -1,5 +1,7 @@
 package com.myspring.kgkiosk.member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -25,6 +27,17 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO adminLoginByIdPwd(MemberVO memberVO) throws DataAccessException {
 		MemberVO vo = sqlSession.selectOne("mapper.member.adminLoginByIdPwd",memberVO);
 		return vo;
+	}
+	
+	@Override
+	public List selectAllMemberList() throws DataAccessException {
+		List<MemberVO> memberList = sqlSession.selectList("mapper.member.selectAllMemberList");
+		return memberList;	
+	}
+
+	@Override
+	public MemberVO selectSingleMember(String id) throws DataAccessException {
+		return sqlSession.selectOne("mapper.member.selectSingleMember", id);
 	}
 
 	@Override

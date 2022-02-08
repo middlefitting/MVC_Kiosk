@@ -16,7 +16,7 @@ public class ComplaintPostServiceImpl implements ComplaintPostService{
 	
 	@Override
 	public List<ComplaintPostVO> listAllComplaintPostList() throws Exception {
-		List<ComplaintPostVO> complaintPostList =  complaintPostDAO.selectAllComplaintPostList();
+		List<ComplaintPostVO> complaintPostList = complaintPostDAO.selectAllComplaintPostList();
         return complaintPostList;
 	}
 

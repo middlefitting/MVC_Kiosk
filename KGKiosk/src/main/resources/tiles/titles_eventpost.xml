@@ -8,5 +8,4 @@
       	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/listAllComplaintPostList.jsp" />
 	</definition>
-	
 </tiles-definitions>

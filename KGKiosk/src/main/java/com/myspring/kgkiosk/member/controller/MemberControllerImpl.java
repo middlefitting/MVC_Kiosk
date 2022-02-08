@@ -103,6 +103,22 @@ public class MemberControllerImpl   implements MemberController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@Override
+	@RequestMapping(value = "/member/mypage.do", method =  RequestMethod.GET)
+	public ModelAndView mypage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("html/text;charset=uft-8");
+		HttpSession session = request.getSession();
+		String viewName = (String)request.getAttribute("viewName");
+		
+		memberVO = (MemberVO) session.getAttribute("member");
+		memberVO = memberService.viewSingleMember(memberVO.getId());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memberVO",memberVO);
+		mav.setViewName(viewName);
+		return mav;
+	}	
 
 	@Override
 	@RequestMapping(value="/member/addMember.do", method= RequestMethod.POST)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.coupon">
+	<resultMap id="CouponResult" type="couponVO">
+		<result property="couponKey" column="couponKey" />
+        <result property="couponName" column="couponName" />
+        <result property="couponPercent" column="couponPercent" />
+        <result property="couponAmount" column="couponAmount" />
+        <result property="couponLeast" column="couponLeast" />
+        <result property="couponEndDate" column="couponEndDate" />
+	</resultMap> 
+
+	<select id="selectAllCouponList" resultMap="CouponResult">
+      <![CDATA[
+         select * from coupon order by couponEndDate desc 
+         
+      ]]>
+	</select>
+	
+	<select id="selectSingleCoupon" parameterType="String" resultType="couponVO">
+      <![CDATA[
+         select * from coupon 
+         where couponKey=#{couponKey}
+      ]]>
+	</select>
+    
+  <insert id="insertCoupon"  parameterType="couponVO">
+		<![CDATA[
+		 insert into coupon(couponKey, couponName, couponPercent, couponAmount, couponLeast, couponEndDate)
+		 values(#{couponKey}, #{couponName}, #{couponPercent}, #{couponAmount}, #{couponLeast}, #{couponEndDate})
+		]]>      
+	</insert>
+	
+   
+   <update id="updateCoupon"  parameterType="couponVO">
+     <![CDATA[
+	     update coupon
+	     set couponName=#{couponName}, couponPercent=#{couponPercent}, couponAmount=#{couponAmount}, couponLeast=#{couponLeast}, couponEndDate=#{couponEndDate}
+	     where
+	     couponKey=#{couponKey}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteCoupon"  parameterType="String">
+	<![CDATA[
+	   delete from coupon
+	   where
+	   couponKey=#{couponKey}
+	]]>      
+  </delete>
+
+</mapper>
