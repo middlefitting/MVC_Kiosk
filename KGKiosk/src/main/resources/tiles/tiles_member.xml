@@ -43,4 +43,10 @@
       <put-attribute name="body" value="/WEB-INF/views/member/addMemberForm.jsp" />
    </definition>
    
+   <definition name="/member/modifyMemberForm" extends="baseLayout">
+      <put-attribute name="title" value="회원정보수정" />
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/member/modifyMemberForm.jsp" />
+   </definition>
+   
 </tiles-definitions>

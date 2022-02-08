@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
 <title>로그인창</title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/loginFormStyle.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/memberFormStyle.css">
 <c:choose>
 	<c:when test="${result=='loginFailed' }">
 	  <script>

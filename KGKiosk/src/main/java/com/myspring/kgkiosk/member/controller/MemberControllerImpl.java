@@ -150,9 +150,10 @@ public class MemberControllerImpl   implements MemberController {
 			throws Exception {
 //		request.setCharacterEncoding("utf-8");
 //		response.setContentType("html/text;charset=uft-8");
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		int result = 0;
 		result = memberService.modifyMember(member);
+		session.setAttribute("member", member);
 		ModelAndView mav = new ModelAndView("redirect:/main.do");
 		mav.addObject("result",result);
 		if(result== 0) {

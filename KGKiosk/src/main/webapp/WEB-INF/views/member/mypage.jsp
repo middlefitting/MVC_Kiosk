@@ -17,7 +17,7 @@
 <div class="myPage">
 	<div class="header">
 		<h1>마이페이지</h1>
-		<b><%-- ${member.name } --%>강채윤</b>님 안녕하세요!
+		<b>${member.name }</b>님 안녕하세요!
 	</div>
 	<div class="pageMenu">
 		<div class="subMenu">
@@ -28,7 +28,7 @@
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/modifyMember.do">
+			<a href="${contextPath}/member/modifyMemberForm.do">
 				<img src="${contextPath}/resources/image/modifiyIcon.png" height="40px">
 				<br>
 				내 정보 수정
