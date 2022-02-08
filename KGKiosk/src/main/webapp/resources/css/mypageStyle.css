@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.myPage {
+	padding:20px;
+	width:100%;
+	float:left;
+}
+.pageMenu {
+	margin:0 30px 10px 0;
+	height:200px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.subMenu {
+	width:300px;
+	height:120px;
+	margin: 0px 10px 0px 10px;
+    text-align:center;
+    display:table;
+   
+    border-radius: 10px;
+}
+.subMenu a {
+	display:table-cell;
+	vertical-align:middle;
+	color:#000000;
+}
+a:visited {text-decoration:none;}
+
+/*--- 버튼 설정 ---*/
+
