@@ -18,6 +18,13 @@
          select * from pizzaMember	order by joinDate desc	 	
       ]]>
 	</select>
+	
+	<select id="selectSingleMember" parameterType="String" resultType="memberVO">
+      <![CDATA[
+         select * from pizzaMember 
+         where id=#{id}
+      ]]>
+	</select>
     
   <insert id="insertMember"  parameterType="memberVO">
 		<![CDATA[

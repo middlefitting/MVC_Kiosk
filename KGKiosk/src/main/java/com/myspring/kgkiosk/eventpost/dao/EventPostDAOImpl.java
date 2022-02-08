@@ -41,7 +41,7 @@ public class EventPostDAOImpl implements EventPostDAO{
 
 	@Override
 	public int deleteEventPost(String eventKey) throws DataAccessException {
-		int result = sqlSession.update("mapper.eventPost.deleteEventPost", eventKey);
+		int result = sqlSession.delete("mapper.eventPost.deleteEventPost", eventKey);
 		return result;
 	}
 

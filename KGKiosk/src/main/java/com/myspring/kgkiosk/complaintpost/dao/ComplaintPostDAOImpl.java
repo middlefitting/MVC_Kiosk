@@ -40,7 +40,7 @@ public class ComplaintPostDAOImpl implements ComplaintPostDAO{
 
 	@Override
 	public int deleteComplaintPost(String complaintPostKey) throws DataAccessException {
-		int result = sqlSession.update("mapper.complaintPost.deleteComplaintPost", complaintPostKey);
+		int result = sqlSession.delete("mapper.complaintPost.deleteComplaintPost", complaintPostKey);
 		return result;
 	}
 

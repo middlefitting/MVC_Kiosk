@@ -1,5 +1,7 @@
 package com.myspring.kgkiosk.member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO adminLogin(MemberVO memberVO) throws Exception {
 		return memberDAO.adminLoginByIdPwd(memberVO);
+	}
+	
+	@Override
+	public List<MemberVO> listAllMemberList() throws Exception {
+		List<MemberVO> memberList =  memberDAO.selectAllMemberList();
+        return memberList;
+	}
+
+	@Override
+	public MemberVO viewSingleMember(String id) throws Exception {
+		MemberVO memberVO = memberDAO.selectSingleMember(id);
+		return memberVO;
 	}
 
 	@Override
