@@ -11,6 +11,7 @@ public class ComplaintPostVO {
 	private String complaintPostTitle;
 	private String complaintPostBody;
 	private TIMESTAMP complaintWriteDate;
+	private String complaintAnswer;
 	
 	/*
 	 * public ComplaintPostVO() {
@@ -65,4 +66,11 @@ public class ComplaintPostVO {
 		this.complaintWriteDate = complaintWriteDate;
 	}
 	
+	public String getComplaintAnswer() {
+		return complaintAnswer;
+	}
+
+	public void setComplaintAnswer(String complaintAnswer) {
+		this.complaintAnswer = complaintAnswer;
+	}
 }

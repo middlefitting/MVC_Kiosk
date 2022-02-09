@@ -15,6 +15,7 @@ body { min-width:912px }
 .eventBanner .slidelist {
 	white-space:nowrap;
 	font-size:0;
+	padding-inline-start:0px;
 }
 .eventBanner .slidelist > li {
 	display:inline-block;

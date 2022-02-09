@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.compList {
+    width:inherit;
+    height:600px;
+    overflow:auto;
+    
+}
+.compList .header {
+    display:flex;
+    font-weight:bold;
+    list-style-type: none;
+    justify-content:space-around;
+}
+
+.compList .subRow.id {width:20%; font-weight:bold;}
+.compList .subRow.title {width:60%;}
+.compList .subRow.date {width:20%}
+.compList .subRow.answer {width:20%;}
+.compList .subRow.answer.no {color:red;}
+.compList .subRow.answer.yes {color:#bcbcbcdb; font-style:italic;}
+.compList .row {
+    display:flex;
+    list-style-type: none;
+}
+
+.subRow.title a {
+    text-decoration:none;
+    color:black;
+}
+.subRow.title a:hover {
+    color:#c00727
+}
+
+#headerHr {
+    margin:30px 20px 0px 20px;
+    border: solid 1px #c007274a;
+}

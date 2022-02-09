@@ -12,7 +12,8 @@
 <head>
 <meta charset="UTF-8">
 <title>문의내역</title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/adminComplaintSubMenuStyle.css">
+<%-- <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/adminComplaintSubMenuStyle.css"> --%>
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/complaintListStyle.css">
 </head>
 <body>
 <h1>문의 내역</h1>
@@ -32,17 +33,32 @@
 </table>
 <hr> -->
 <!-- 리스트 -->
-<%-- <div class="compList">
-	<c:forEach var="complaintPostVO" items=${ComplaintPostLists }>
-		<ul>
-			<li>${complaintPostVO.complaintPostId }</li>
-			<li>${complaintPostVO.complaintPostTitle }</li>
-			<li>${complaintPostVO.complaintPostBody }</li>
-			<li>${complaintPostVO.complaintWriteDate }</li>
+<div class="compList">
+	<ul class="header">
+		<li class="subRow id header ">아이디</li>
+		<li class="subRow title header">문의제목</li>
+		<li class="subRow date header">문의시각</li>
+		<li class="subRow answer header">답변여부</li>
+	</ul>
+	<hr id="headerHr">
+	<c:forEach var="complaintPostVO" items="${ComplaintPostLists }">
+		<ul class="row">
+			<li class="subRow id">${complaintPostVO.complaintPostId }</li>
+			<li class="subRow title"><a href="${contextPath}/complaintpost/adminViewSingleComplaintPost.do?complaintPostKey=${complaintPostVO.complaintPostKey }">${complaintPostVO.complaintPostTitle }</a></li>
+			<li class="subRow date">${complaintPostVO.complaintWriteDate }</li>
+			<c:set var="answer" value="${complaintPostVO.complaintAnswer}" />
+			<c:choose>
+				<c:when test="${answer eq '0'}">
+					<li class="subRow answer no">new!</li>
+				</c:when>
+				<c:when test="${answer eq '1'}">
+					<li class="subRow answer yes">답변완료</li>
+				</c:when>
+			</c:choose>
 		</ul>
 	</c:forEach>
-	
-</div> --%>
+</div>
+
 
 </body>
 </html>

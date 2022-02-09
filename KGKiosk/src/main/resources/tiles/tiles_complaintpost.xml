@@ -3,6 +3,7 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
+	<!-- =====client===== -->
 	<definition name="/complaintpost/listAllComplaintPostList" extends="baseLayout">
 	      <put-attribute name="title" value="메인페이지" />
       	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -13,5 +14,18 @@
 	      <put-attribute name="title" value="문의" />
       	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/addComplaintPostForm.jsp" />
+	</definition>
+	
+	<definition name="/complaintpost/clientViewSingleComplaintPost" extends="baseLayout">
+	      <put-attribute name="title" value="문의내역" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/clientViewSingleComplaintPost.jsp" />
+	</definition>
+	
+	<!-- =====admin===== -->
+	<definition name="/complaintpost/adminViewSingleComplaintPost" extends="baseLayout">
+	      <put-attribute name="title" value="문의내역" />
+      	  <put-attribute name="header" value="/WEB-INF/views/admin/adminHeader.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/adminViewSingleComplaintPost.jsp" />
 	</definition>
 </tiles-definitions>
