@@ -155,12 +155,14 @@ public class MemberControllerImpl   implements MemberController {
 	}
 	
 	@Override
-	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.POST)
 	public ModelAndView removeMember(@RequestParam("id") String id, 
-			           HttpServletRequest request, HttpServletResponse response) throws Exception{
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int result = 0;
+		HttpSession session = request.getSession();
+		session.removeAttribute("member");
 		result = memberService.removeMember(id);
-		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
+		ModelAndView mav = new ModelAndView("redirect:/main.do");
 		mav.addObject("result", result);
 		return mav;
 	}

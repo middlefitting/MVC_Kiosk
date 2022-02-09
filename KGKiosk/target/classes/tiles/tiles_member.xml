@@ -49,4 +49,10 @@
       <put-attribute name="body" value="/WEB-INF/views/member/modifyMemberForm.jsp" />
    </definition>
    
+   <definition name="/member/removeMemberForm" extends="baseLayout">
+      <put-attribute name="title" value="회원탈퇴" />
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/member/removeMemberForm.jsp" />
+   </definition>
+   
 </tiles-definitions>

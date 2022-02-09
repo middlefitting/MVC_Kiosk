@@ -43,7 +43,10 @@
 			</a>
 		</div>
 	</div>
-	<br>
+	<div class="removeMem">
+		<a href="${contextPath}/member/removeMemberForm.do">회원탈퇴</a>
+	</div>
+	<br><br>
 	<div class="header">
 		<h1>나의 문의</h1>
 	</div>
@@ -53,6 +56,10 @@
 			<li class="subRow date header">문의시각</li>
 			<li class="subRow answer header">답변여부</li>
 		</ul>
+		<%-- <c:if test="${ComplaintPostLists == null}">
+			<li class="subRow">등록한 문의가 없습니다.</li>
+		</c:if> --%>
+		
 		<hr id="headerHr">
 		<c:forEach var="complaintPostVO" items="${ComplaintPostLists }">
 			<c:set var="memId" value="${complaintPostVO.complaintPostId}" />

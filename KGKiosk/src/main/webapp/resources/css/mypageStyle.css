@@ -34,3 +34,13 @@
 }
 a:visited {text-decoration:none;}
 a:link {text-decoration:none;}
+
+.removeMem {
+	width:90%;
+	font-size:17px;
+	text-align:right;
+}
+.removeMem a{
+	text-decoration:overline;
+	color:#999898;
+}
