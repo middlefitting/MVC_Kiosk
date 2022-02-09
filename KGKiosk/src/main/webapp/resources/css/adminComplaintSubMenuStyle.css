@@ -1,0 +1,38 @@
+@charset "UTF-8";
+#subMenu {
+     height: 50px;  
+     width: 100vw;
+     position: relative;
+     background-color: #ffffff;
+}
+#subMenu ul {
+    list-style-type: none;  
+    margin: 0px;            
+    padding: 0px;           
+}
+#subMenu ul li {
+    color: white;               
+    background-color: #ffffff;  
+    float: left;                
+    line-height: 30px;          
+    vertical-align: middle;     
+    text-align: center;         
+    -position: relative;         
+}
+.menuLink {
+    text-decoration:none;               
+    display: block;                     
+    width: 100px;                       
+    font-size: 18px;                    
+    font-weight: bold;           
+    color: #000000;     
+}
+
+.subMenuLi:hover .menuLink {
+    color: #ffffff;                 
+    background-color: #c00727;                
+}
+.menuLink.check {
+	color: #ffffff;                 
+    background-color: #c00727; 
+}

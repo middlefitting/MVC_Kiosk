@@ -27,8 +27,8 @@
     
   <insert id="insertComplaintPost"  parameterType="complaintPostVO">
 		<![CDATA[
-		 insert into complaintPost(complaintPostKey, complaintPostId, complaintPostTitle, complaintPostBody, complaintWriteDate)
-		 values(#{complaintPostKey}, #{complaintPostId}, #{complaintPostTitle}, #{complaintPostBody}, #{complaintWriteDate})
+		 insert into complaintPost(complaintPostKey, complaintPostId, complaintPostTitle, complaintPostBody)
+		 values(#{complaintPostKey}, #{complaintPostId}, #{complaintPostTitle}, #{complaintPostBody})
 		]]>      
 	</insert>
 	

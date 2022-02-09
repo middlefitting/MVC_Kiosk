@@ -21,20 +21,32 @@
    <definition name="adminMain" extends="baseLayout">
       <put-attribute name="title" value="관리자메인페이지" />
       <put-attribute name="header" value="/WEB-INF/views/admin/adminHeader.jsp" />
-      <put-attribute name="body" value="/WEB-INF/views/admin/adminMain.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/admin/adminComplaint/inquiryPage.jsp" />
    </definition>
 	
 
    <definition name="/member/loginForm" extends="baseLayout">
-      <put-attribute name="title" value="로그인창" />
+      <put-attribute name="title" value="로그인" />
       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
       <put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
    </definition>
    
    <definition name="/member/mypage" extends="baseLayout">
-      <put-attribute name="title" value="로그인창" />
+      <put-attribute name="title" value="마이페이지" />
       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
       <put-attribute name="body" value="/WEB-INF/views/member/mypage.jsp" />
+   </definition>
+   
+   <definition name="/member/addMemberForm" extends="baseLayout">
+      <put-attribute name="title" value="회원가입" />
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/member/addMemberForm.jsp" />
+   </definition>
+   
+   <definition name="/member/modifyMemberForm" extends="baseLayout">
+      <put-attribute name="title" value="회원정보수정" />
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/member/modifyMemberForm.jsp" />
    </definition>
    
 </tiles-definitions>

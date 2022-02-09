@@ -12,6 +12,7 @@
 <head>
   <meta charset="UTF-8">
 <title>로그인창</title>
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/memberFormStyle.css">
 <c:choose>
 	<c:when test="${result=='loginFailed' }">
 	  <script>
@@ -24,27 +25,22 @@
 </head>
 
 <body>
-<form name="frmLogin" method="post"  action="${contextPath}/member/login.do">
-   <table border="1"  width="80%" align="center" >
-      <tr align="center">
-         <td>아이디</td>
-         <td>비밀번호</td>
-      </tr>
-      <tr align="center">
-         <td>
-	    <input type="text" name="id" value="" size="20">
-	 </td>
-         <td>
-	    <input type="password" name="pwd" value="" size="20">
-	 </td>
-      </tr>
-      <tr align="center">
-         <td colspan="2">
-            <input type="submit" value="로그인" > 
-            <input type="reset"  value="다시입력" > 
-         </td>
-      </tr>
-   </table>
-</form>
+<div class="header"><h2>로그인</h2></div>
+<div class="formDiv">
+	<form name="frmLogin" method="post"  action="${contextPath}/member/login.do">
+		<div class="inputBox">
+			<input type="text" name="id" id="id" value="" size="20" placeholder="아이디">
+			<label for="id">아이디</label>
+		</div>
+		<div class="inputBox">
+			<input type="password" name="pwd" id="pwd" value="" size="20"placeholder="비밀번호">
+			<label for="id">비밀번호</label>
+		</div>
+		<div class="button">
+			<input type="submit" value="로그인" > 
+			<input type="button" value="회원가입" onclick="location.href='${contextPath}/member/addMemberForm.do'"> 
+		</div>
+	</form>
+</div>
 </body>
 </html>
