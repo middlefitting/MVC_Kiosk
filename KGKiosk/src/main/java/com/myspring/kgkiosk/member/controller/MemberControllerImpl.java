@@ -1,5 +1,7 @@
 package com.myspring.kgkiosk.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
 import com.myspring.kgkiosk.member.service.MemberService;
 import com.myspring.kgkiosk.member.vo.MemberVO;
 
@@ -35,14 +38,24 @@ public class MemberControllerImpl   implements MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value = {"/adminMain.do"}, method = RequestMethod.GET)
-	private ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	/*@RequestMapping(value = "/admin/complaintPage.do", method = RequestMethod.GET)
+	private ModelAndView adminMain(@ModelAttribute("ComplaintPostLists") List<ComplaintPostVO> ComplaintPostLists, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		session.setAttribute("ComplaintPostLists", ComplaintPostLists);
+		mav.setViewName(viewName);
+		return mav;
+	}*/
+	
+	@RequestMapping(value = "/adminMain.do", method = RequestMethod.GET)
+	private ModelAndView adminMain2(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
-		return mav;
+		return mav; 
 	}
-
+ 
 	@Override
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("member") MemberVO member,

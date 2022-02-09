@@ -46,9 +46,10 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
-		List ComplaintPostLists = complaintPostService.listAllComplaintPostList();
+		List<ComplaintPostVO> ComplaintPostLists = complaintPostService.listAllComplaintPostList();
 		mav.addObject("ComplaintPostLists", ComplaintPostLists);
 		mav.setViewName(viewName);
+		
 		return mav;
 	}
 
