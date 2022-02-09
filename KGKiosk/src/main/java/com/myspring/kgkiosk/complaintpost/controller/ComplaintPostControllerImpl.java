@@ -67,6 +67,18 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	}
 	
 	@Override
+	@RequestMapping(value = "/complaintpost/clientViewSingleComplaintPost.do", method = RequestMethod.GET)
+	public ModelAndView viewSingleComplaintPostClient(String complaintPostKey, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		complaintPostVO = complaintPostService.viewSingleComplaintPost(complaintPostKey);
+		mav.setViewName(viewName);
+		mav.addObject("complaintPost", complaintPostVO);
+		return mav;
+	}
+	
+	@Override
 	@RequestMapping(value = "/complaintpost/addComplaintPost", method = RequestMethod.POST)
 	public ModelAndView addComplaintPost(ComplaintPostVO complaintPostVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -86,7 +98,6 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	@RequestMapping(value = "/complaintpost/modifyComplaintPost.do", method = RequestMethod.POST)
 	public ModelAndView modifyComplaintPost(@ModelAttribute("complaintPostVO") ComplaintPostVO complaintPostVO, @RequestParam("complaintAnswerBody") String complaintAnswerBody
 			, HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		String viewName = (String)request.getAttribute("viewName"); 
 		ModelAndView mav = new ModelAndView("redirect:/admin/complaint.do");
 		int result = 0;
 		complaintPostVO.setComplaintAnswer("1");
@@ -95,20 +106,32 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 
 		result = complaintPostService.modifyComplaintPost(complaintPostVO);
 		mav.addObject("result", result);
-//		mav.setViewName(viewName);
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/complaintpost/modifyComplaintPostClient.do", method = RequestMethod.POST)
+	public ModelAndView modifyComplaintPostClient(@ModelAttribute("complaintPostVO") ComplaintPostVO complaintPostVO
+			, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView("redirect:/member/mypage.do");
+		System.out.println("들어가라"+complaintPostVO.getComplaintPostTitle());
+		System.out.println(complaintPostVO.getComplaintPostBody());
+		System.out.println(complaintPostVO.getComplaintAnswer());
+		System.out.println(complaintPostVO.getComplaintPostKey());
+		int result = 0;
+		result = complaintPostService.modifyComplaintPost(complaintPostVO);
+		mav.addObject("result", result);
 		return mav;
 	}
 
 	@Override
-	@RequestMapping(value = "/complaintpost/removeComplaintPost.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/complaintpost/removeComplaintPost.do", method = RequestMethod.GET)
 	public ModelAndView removeComplaintPost(String complaintPostKey, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("redirect:/member/mypage.do");
 		int result = 0;
 		result = complaintPostService.removeComplaintPost(complaintPostKey);
 		mav.addObject("result", result);
-		mav.setViewName(viewName);
 		return mav;
 	}
 	

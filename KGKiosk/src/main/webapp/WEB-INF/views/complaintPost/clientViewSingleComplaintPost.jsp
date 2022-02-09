@@ -14,31 +14,28 @@
 </head>
 <body>
 <div class="formDiv">
-	<form name="frmComplaint" method="post"  action="${contextPath}/complaintpost/addComplaintPost.do">
+	<form name="frmComplaint" method="post"  action="${contextPath}/complaintpost/modifyComplaintPostClient.do">
 		<div class="inputBox">
 				<input type="text" name="complaintPostId" id="complaintPostId" value="${complaintPost.complaintPostId }" size="50" placeholder="아이디" readonly>
 				<label for="complaintPostId">아이디</label>
 			</div>
 		<div class="inputBox">
-			<input type="text" name="complaintPostTitle" id="complaintPostTitle" value="${complaintPostVO.complaintPostTitle}" size="50"placeholder="제목" readonly>
+			<input type="text" name="complaintPostTitle" id="complaintPostTitle" value="${complaintPost.complaintPostTitle}" size="50"placeholder="제목">
 			<label for="complaintPostTitle">제목</label>
 		</div>
 		<div class="inputBox">
-			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="문의내용" readonly>${complaintPostVO.complaintPostBody}</textarea>
-			<!-- <input type="text" name="complaintPostBody" id="complaintPostBody" value="" size="20"placeholder="문의내용"> -->
+			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="문의내용">${complaintPost.complaintPostBody}</textarea>
 			<label for="complaintPostBody">문의내용</label>
 		</div>
-		<!-- 답변 칼럼 true면 보이게 처리하기 -->
-		<div class="inputBox">
-			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="답변"></textarea>
-			<!-- <input type="text" name="complaintPostBody" id="complaintPostBody" value="" size="20"placeholder="문의내용"> -->
-			<label for="complaintPostBody">답변</label>
-		</div>
-		<div class="button">
-			<input type="button" value="수정" onclick="location:href=''">
-			<input type="button" value="수정" onclick="location:href=''">
-		</div>
-		
+		<!-- 미답변일 때만 수정 삭제 가능 -->
+		<c:if test="${complaintPost.complaintAnswer eq '0'}">
+			<div class="button">
+				<input type="hidden" name="complaintAnswer" id="complaintAnswer" value="0">
+				<input type="hidden" name="complaintPostKey" id="complaintPostKey" value="${complaintPost.complaintPostKey}">
+				<input type="submit" value="수정">
+				<input type="button" value="삭제" onclick="location.href='${contextPath}/complaintpost/removeComplaintPost.do?complaintPostKey=${complaintPost.complaintPostKey }'">
+			</div>
+		</c:if>
 	</form>
 </div>
 </body>

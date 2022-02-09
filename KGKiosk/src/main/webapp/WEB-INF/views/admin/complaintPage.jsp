@@ -49,7 +49,7 @@
 			<c:set var="answer" value="${complaintPostVO.complaintAnswer}" />
 			<c:choose>
 				<c:when test="${answer eq '0'}">
-					<li class="subRow answer yes">new!</li>
+					<li class="subRow answer no">new!</li>
 				</c:when>
 				<c:when test="${answer eq '1'}">
 					<li class="subRow answer yes">답변완료</li>
