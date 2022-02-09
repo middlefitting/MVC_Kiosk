@@ -113,10 +113,6 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	public ModelAndView modifyComplaintPostClient(@ModelAttribute("complaintPostVO") ComplaintPostVO complaintPostVO
 			, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView("redirect:/member/mypage.do");
-		System.out.println("들어가라"+complaintPostVO.getComplaintPostTitle());
-		System.out.println(complaintPostVO.getComplaintPostBody());
-		System.out.println(complaintPostVO.getComplaintAnswer());
-		System.out.println(complaintPostVO.getComplaintPostKey());
 		int result = 0;
 		result = complaintPostService.modifyComplaintPost(complaintPostVO);
 		mav.addObject("result", result);
