@@ -35,7 +35,8 @@
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/logout.do">
+			<a href="${contextPath}/admin/couponPage.do">
+								<!-- couponController에 admin/couponPage.do로 간다 -->
 				쿠폰관리
 			</a>
 		</div>

@@ -75,6 +75,7 @@ public class CouponControllerImpl implements CouponController{
 	@RequestMapping(value = "/coupon/removeCoupon.do", method = RequestMethod.POST)
 	public ModelAndView removeCoupon(String couponKey, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
@@ -83,5 +84,13 @@ public class CouponControllerImpl implements CouponController{
 		mav.setViewName(viewName);
 		return mav;
 	}
-
+	
+	@Override
+	@RequestMapping(value = "/admin/couponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/admin/couponPage");
+		return mav;
+		
+	}
 }
