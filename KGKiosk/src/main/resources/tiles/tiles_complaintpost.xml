@@ -14,5 +14,4 @@
       	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 	      <put-attribute name="body" value="/WEB-INF/views/complaintPost/addComplaintPostForm.jsp" />
 	</definition>
-	
 </tiles-definitions>

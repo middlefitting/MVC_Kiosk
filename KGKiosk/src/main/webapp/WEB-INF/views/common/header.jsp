@@ -17,15 +17,14 @@
 
 </head>
 <body>
-<table id="all" border=0  width="100%">
-  <tr>
-     <td id="logo">
+  <div id="all"> <!-- table tr -->
+     <div id="logo">
 		<a href="${contextPath}/main.do">
 			<img src="${contextPath}/resources/image/pizzaLogo.png" height="80px" />
 		</a>
-     </td>
+     </div>
      <!-- 메뉴바 -->
-     <td id="topMenu" >
+     <div id="topMenu" >
      	<ul> 
      		<li class="topMenuLi"> <a class="menuLink" href="">메뉴</a> 
      			<ul class="submenu">
@@ -43,13 +42,13 @@
      			</ul> 
      		</li> 
      	</ul> 
-     </td>
-    <td id="address">
+     </div>
+    <div id="address">
     	<a href="#">
     		<img src="${contextPath}/resources/image/locationIcon.png" height="50px">
     	</a>
-    </td>
-	<td id="login">
+    </div>
+	<div id="login">
 		<c:choose>
 			<c:when test="${isLogOn == true  && member!= null}">
 				<a href="${contextPath}/member/mypage.do">
@@ -63,14 +62,13 @@
 				</a>
 			</c:otherwise>
 		</c:choose>     
-	</td>
-     <td id="cart">
+	</div>
+    <div id="cart">
      	<a href="#">
 			<img src="${contextPath}/resources/image/cartIcon.png" height="40px">
 		</a>
-     </td>
-  </tr>
-</table>
+     </div>
+</div>
 
 
 </body>
