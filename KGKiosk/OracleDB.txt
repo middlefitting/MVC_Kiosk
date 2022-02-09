@@ -110,3 +110,61 @@ select * from eventPost	order by eventWriteDate asc;
 ----------------------------------------------------------------------------
 
 
+drop table coupon;
+
+CREATE TABLE coupon(
+    couponKey varchar2(50) PRIMARY KEY,
+    couponName varchar2(30),
+    couponPercent varchar2(10) Default '1',
+    couponAmount varchar2(10) Default '0',
+    couponLeast varchar2(10) Default '0',
+    couponEndDate DATE DEFAULT SYSDATE
+);
+
+INSERT INTO coupon
+values('1234', '10프로할인', '0.9', '0', '0', sysdate);
+
+INSERT INTO coupon
+values('12345', '만원할인', '1', '10000', '20000', sysdate);
+
+commit;
+
+select * from coupon order by CouponEndDate desc;
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+CREATE table food (      
+    foodKey varchar2(50) PRIMARY KEY,
+    foodCategory varchar2(10),
+    foodName varchar(50) not null, 
+    foodPrice varchar(50) not null,  
+    foodStock varchar(50) DEFAULT 0,       
+    foodInfo varchar(100) DEFAULT NULL,          
+    foodImg varchar(100) not null         
+);
+
+INSERT INTO food
+values('1234', '피자', '베이컨피자', '20000', '100', '세상에서 제일 맛있는 피자!', 'c://img/food');
+
+INSERT INTO food
+values('12345', '피자', '치즈피자', '20000', '100', '세상에서 두번째로 맛있는 피자!', 'c://img/food');
+
+INSERT INTO food
+values('123456', '음료', '콜라', '20000', '100', '세상에서 제일 맛있는 음료!', 'c://img/food');
+
+INSERT INTO food
+values('1234567', '음료', '사이다', '20000', '100', '세상에서 두번째로 맛있는 음료!', 'c://img/food');
+
+INSERT INTO food
+values('12345678', '사이드', '버팔로윙', '20000', '100', '세상에서 제일 맛있는 사이드!', 'c://img/food');
+
+INSERT INTO food
+values('123456789', '사이드', '코우슬로', '20000', '100', '세상에서 두번째로 맛있는 사이드!', 'c://img/food');
+
+commit;
+
+select * from food order by foodCategory desc;
+
+select * from food where foodCategory='피자';
