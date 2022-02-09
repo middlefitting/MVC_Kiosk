@@ -54,7 +54,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	}
  
 	@Override
-	@RequestMapping(value = "/complaintpost/viewSingleComplaintPost.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/complaintpost/adminViewSingleComplaintPost.do", method = RequestMethod.GET)
 	public ModelAndView viewSingleComplaintPost(String complaintPostKey, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");

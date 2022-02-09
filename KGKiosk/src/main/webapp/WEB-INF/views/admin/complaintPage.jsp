@@ -38,13 +38,23 @@
 		<li class="subRow id header ">아이디</li>
 		<li class="subRow title header">문의제목</li>
 		<li class="subRow date header">문의시각</li>
+		<li class="subRow answer header">답변여부</li>
 	</ul>
 	<hr id="headerHr">
 	<c:forEach var="complaintPostVO" items="${ComplaintPostLists }">
 		<ul class="row">
 			<li class="subRow id">${complaintPostVO.complaintPostId }</li>
-			<li class="subRow title"><a href="${contextPath}/">${complaintPostVO.complaintPostTitle }</a></li>
+			<li class="subRow title"><a href="${contextPath}/complaintPost/adminViewSingleComplaintPost.do">${complaintPostVO.complaintPostTitle }</a></li>
 			<li class="subRow date">${complaintPostVO.complaintWriteDate }</li>
+			<c:set var="answer" value="${complaintPostVO.complaintAnswer}" />
+			<c:choose>
+				<c:when test="${answer eq '0'}">
+					<li class="subRow answer yes">new!</li>
+				</c:when>
+				<c:when test="${answer eq '1'}">
+					<li class="subRow answer yes">답변완료</li>
+				</c:when>
+			</c:choose>
 		</ul>
 	</c:forEach>
 </div>

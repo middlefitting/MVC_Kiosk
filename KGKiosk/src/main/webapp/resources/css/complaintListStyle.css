@@ -15,6 +15,9 @@
 .compList .subRow.id {width:20%; font-weight:bold;}
 .compList .subRow.title {width:60%;}
 .compList .subRow.date {width:20%}
+.compList .subRow.answer {width:20%;}
+.compList .subRow.answer.yes {color:red;}
+.compList .subRow.answer.no {color:#bcbcbcdb; font-style:italic;}
 .compList .row {
     display:flex;
     list-style-type: none;

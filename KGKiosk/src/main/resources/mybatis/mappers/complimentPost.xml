@@ -10,6 +10,7 @@
         <result property="complaintPostTitle" column="complaintPostTitle" />
         <result property="complaintPostBody" column="complaintPostBody" />
         <result property="complaintWriteDate" column="complaintWriteDate" />
+        <result property="complaintAnswer" column="complaintAnswer" />
 	</resultMap> 
 
 	<select id="selectAllComplaintPostList" resultMap="complaintResult">
@@ -36,7 +37,7 @@
    <update id="updateComplaintPost"  parameterType="complaintPostVO">
      <![CDATA[
 	     update complaintPost
-	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintWriteDate=#{complaintWriteDate}
+	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintWriteDate=#{complaintWriteDate}, complaintAnswer=#{complaintAnswer}
 	     where
 	     complaintPostKey=#{complaintPostKey}
       ]]>      
