@@ -14,25 +14,23 @@
 </head>
 <body>
 <div class="formDiv">
-	<form name="frmComplaint" method="post"  action="${contextPath}/admin/complaint.do">
+	<form name="frmComplaint" method="post"  action="${contextPath}/complaintpost/modifyComplaintPost.do">
+		<input type="hidden" name="complaintPostKey" id="complaintPostKey" value="${complaintPost.complaintPostKey }">
 		<div class="inputBox">
 				<input type="text" name="complaintPostId" id="complaintPostId" value="${complaintPost.complaintPostId }" size="50" placeholder="아이디" readonly>
 				<label for="complaintPostId">아이디</label>
 			</div>
 		<div class="inputBox">
-			<input type="text" name="complaintPostTitle" id="complaintPostTitle" value="${complaintPostVO.complaintPostTitle}" size="50"placeholder="제목" readonly>
+			<input type="text" name="complaintPostTitle" id="complaintPostTitle" value="${complaintPost.complaintPostTitle}" size="50"placeholder="제목" readonly>
 			<label for="complaintPostTitle">제목</label>
 		</div>
 		<div class="inputBox">
-			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="문의내용" readonly>${complaintPostVO.complaintPostBody}</textarea>
-			<!-- <input type="text" name="complaintPostBody" id="complaintPostBody" value="" size="20"placeholder="문의내용"> -->
+			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="문의내용" readonly>${complaintPost.complaintPostBody}</textarea>
 			<label for="complaintPostBody">문의내용</label>
 		</div>
 		<div class="inputBox">
-			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="답변"></textarea>
-			<!-- <input type="text" name="complaintPostBody" id="complaintPostBody" value="" size="20"placeholder="문의내용"> -->
+			<textarea rows="5" cols="50" name="complaintAnswerBody" id="complaintAnswerBody"placeholder="답변" style="color:grean"></textarea>
 			<label for="complaintPostBody">답변</label>
-			<input type="hidden" name="complaintPostAnswer" id="complaintPostAnswer" value="1">
 		</div>
 		<div class="button">
 			<input type="submit" value="답변완료" >

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,8 +61,8 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		complaintPostVO = complaintPostService.viewSingleComplaintPost(complaintPostKey);
-		mav.addObject("complaintPost", complaintPostVO);
 		mav.setViewName(viewName);
+		mav.addObject("complaintPost", complaintPostVO);
 		return mav;
 	}
 	
@@ -83,14 +84,18 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 
 	@Override
 	@RequestMapping(value = "/complaintpost/modifyComplaintPost.do", method = RequestMethod.POST)
-	public ModelAndView modifyComplaintPost(ComplaintPostVO complaintPostVO, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView modifyComplaintPost(@ModelAttribute("complaintPostVO") ComplaintPostVO complaintPostVO, @RequestParam("complaintAnswerBody") String complaintAnswerBody
+			, HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		String viewName = (String)request.getAttribute("viewName"); 
+		ModelAndView mav = new ModelAndView("redirect:/admin/complaint.do");
 		int result = 0;
+		complaintPostVO.setComplaintAnswer("1");
+		String compbody = complaintPostVO.getComplaintPostBody() + "\r\n\r\n========== ´äº¯ ==========\r\n\r\n" + complaintAnswerBody;
+		complaintPostVO.setComplaintPostBody(compbody);
+
 		result = complaintPostService.modifyComplaintPost(complaintPostVO);
 		mav.addObject("result", result);
-		mav.setViewName(viewName);
+//		mav.setViewName(viewName);
 		return mav;
 	}
 
@@ -112,10 +117,7 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView("redirect:/complaintpost/listAllComplaintPostList.do");
-//		mav.setViewName(viewName);
 		return mav; 
 	}
-
 	
-
 }

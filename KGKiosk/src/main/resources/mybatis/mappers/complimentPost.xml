@@ -37,7 +37,7 @@
    <update id="updateComplaintPost"  parameterType="complaintPostVO">
      <![CDATA[
 	     update complaintPost
-	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintWriteDate=#{complaintWriteDate}, complaintAnswer=#{complaintAnswer}
+	     set complaintPostTitle=#{complaintPostTitle}, complaintPostBody=#{complaintPostBody}, complaintAnswer=#{complaintAnswer}
 	     where
 	     complaintPostKey=#{complaintPostKey}
       ]]>      

@@ -14,7 +14,8 @@ public interface ComplaintPostController {
 	public ModelAndView listAllComplaintPostList(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView viewSingleComplaintPost(String complaintPostKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView addComplaintPost(ComplaintPostVO complaintPostVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView modifyComplaintPost(ComplaintPostVO complaintPostVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView removeComplaintPost(String complaintPostKey, HttpServletRequest request, HttpServletResponse response) throws Exception;	
+	public ModelAndView modifyComplaintPost(ComplaintPostVO complaintPostVO, String complaintAnswerBody,HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView removeComplaintPost(String complaintPostKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView adminComplaintPost(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
 

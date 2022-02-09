@@ -44,7 +44,7 @@
 	<c:forEach var="complaintPostVO" items="${ComplaintPostLists }">
 		<ul class="row">
 			<li class="subRow id">${complaintPostVO.complaintPostId }</li>
-			<li class="subRow title"><a href="${contextPath}/complaintPost/adminViewSingleComplaintPost.do">${complaintPostVO.complaintPostTitle }</a></li>
+			<li class="subRow title"><a href="${contextPath}/complaintpost/adminViewSingleComplaintPost.do?complaintPostKey=${complaintPostVO.complaintPostKey }">${complaintPostVO.complaintPostTitle }</a></li>
 			<li class="subRow date">${complaintPostVO.complaintWriteDate }</li>
 			<c:set var="answer" value="${complaintPostVO.complaintAnswer}" />
 			<c:choose>
