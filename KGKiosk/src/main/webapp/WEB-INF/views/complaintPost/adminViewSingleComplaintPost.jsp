@@ -28,14 +28,17 @@
 			<textarea rows="7" cols="50" name="complaintPostBody" id="complaintPostBody"placeholder="문의내용" readonly>${complaintPost.complaintPostBody}</textarea>
 			<label for="complaintPostBody">문의내용</label>
 		</div>
-		<div class="inputBox">
-			<textarea rows="5" cols="50" name="complaintAnswerBody" id="complaintAnswerBody"placeholder="답변" style="color:grean"></textarea>
-			<label for="complaintPostBody">답변</label>
-		</div>
-		<div class="button">
-			<input type="submit" value="답변완료" >
-		</div>
 		
+		<!-- 미답변일 때만 답변가능 -->
+		<c:if test="${complaintPost.complaintAnswer eq '0'}">
+			<div class="inputBox">
+				<textarea rows="5" cols="50" name="complaintAnswerBody" id="complaintAnswerBody"placeholder="답변" style="color:grean"></textarea>
+				<label for="complaintPostBody">답변</label>
+			</div>
+			<div class="button">
+				<input type="submit" value="답변완료" >
+			</div>
+		</c:if>
 	</form>
 </div>
 </body>
