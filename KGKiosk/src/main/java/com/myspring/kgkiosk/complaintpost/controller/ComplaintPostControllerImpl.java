@@ -1,6 +1,7 @@
 package com.myspring.kgkiosk.complaintpost.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -45,14 +46,13 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	public ModelAndView listAllComplaintPostList(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("/admin/complaint");
 		List<ComplaintPostVO> ComplaintPostLists = complaintPostService.listAllComplaintPostList();
 		mav.addObject("ComplaintPostLists", ComplaintPostLists);
-		mav.setViewName(viewName);
 		
 		return mav;
 	}
-
+ 
 	@Override
 	@RequestMapping(value = "/complaintpost/viewSingleComplaintPost.do", method = RequestMethod.GET)
 	public ModelAndView viewSingleComplaintPost(String complaintPostKey, HttpServletRequest request,
@@ -105,6 +105,15 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		mav.addObject("result", result);
 		mav.setViewName(viewName);
 		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/complaint.do", method = RequestMethod.GET)
+	public ModelAndView adminComplaintPost(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView("redirect:/complaintpost/listAllComplaintPostList.do");
+//		mav.setViewName(viewName);
+		return mav; 
 	}
 
 	
