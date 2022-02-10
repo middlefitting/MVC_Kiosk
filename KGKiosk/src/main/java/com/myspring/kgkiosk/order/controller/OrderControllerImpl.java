@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.cart.service.CartService;
 import com.myspring.kgkiosk.cart.vo.CartVO;
+import com.myspring.kgkiosk.member.vo.MemberVO;
 import com.myspring.kgkiosk.order.service.OrderService;
 import com.myspring.kgkiosk.order.vo.OrderVO;
 
@@ -27,6 +28,8 @@ public class OrderControllerImpl implements OrderController{
 	private OrderVO orderVO ;
 	@Autowired
 	private CartVO cartVO ;
+	@Autowired
+	private MemberVO memberVO ;
 	
 	@Override
 	@RequestMapping(value = "/order/payPage.do", method = RequestMethod.GET)
@@ -34,8 +37,10 @@ public class OrderControllerImpl implements OrderController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		cartVO.setId(orderVO.getId());
+		memberVO.setId(orderVO.getId());
 		List CartLists = cartService.listCartList(cartVO);
 		
+		mav.addObject("CartLists", CartLists);
 		mav.addObject("CartLists", CartLists);
 		mav.addObject("orderVO", orderVO);
 		mav.setViewName(viewName);
