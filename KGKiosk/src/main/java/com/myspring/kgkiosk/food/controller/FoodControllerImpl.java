@@ -36,10 +36,20 @@ public class FoodControllerImpl implements FoodController{
 	}
 	
 	@Override
-	@RequestMapping(value = "/food/listAllCategoryFoodList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu/*MenuPage.do", method = RequestMethod.GET)
 	public ModelAndView listAllCategoryFoodList(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
+		if(viewName.contains("pizza")) {
+			foodVO.setFoodCategory("피자");
+		}
+		else if(viewName.contains("side")) {
+			foodVO.setFoodCategory("사이드");
+		}
+		else if(viewName.contains("beverage")) {
+			foodVO.setFoodCategory("음료");
+		}
+		String result = (String)request.getAttribute("result");
 		ModelAndView mav = new ModelAndView();
 		List FoodLists = foodService.listAllCategoryFoodList(foodVO);
 		mav.addObject("FoodLists", FoodLists);
@@ -48,13 +58,13 @@ public class FoodControllerImpl implements FoodController{
 	}
 	
 	@Override
-	@RequestMapping(value = "/food/viewSingleFood.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu/*SingleMenu.do", method = RequestMethod.GET)
 	public ModelAndView viewSingleFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
+		foodVO = foodService.viewSingleFood(foodVO);		
 		ModelAndView mav = new ModelAndView();
-		foodVO = foodService.viewSingleFood(foodVO);
-		mav.addObject("coupon", foodVO);
+		mav.addObject("foodVO", foodVO);
 		mav.setViewName(viewName);
 		return mav;
 	}

@@ -38,26 +38,26 @@ CREATE TABLE complaintPost(
     complaintPostId varchar2(15),
     complaintPostTitle varchar2(50),
     complaintPostBody varchar2(500),
-    complaintWriteDate TIMESTAMP 
+    complaintWriteDate TIMESTAMP DEFAULT sysdate,
+    complaintAnswer varchar2(2) DEFAULT '0'
 );
 
 INSERT INTO complaintPost
-values('kang_220206', 'kang', '맛이 없어도 너무 없어~', '맛이 너무 없습니다. 너무 맛이 없어요', sysdate);
+values('kang_22_02_06_13_05_01', 'kang', '맛이 없어도 너무 없어~', '맛이 너무 없습니다. 너무 맛이 없어요', sysdate, '0');
 
 INSERT INTO complaintPost
-values('park_220206' ,'park', '가격이 너무 비싸~', '가격이 너무 비싸요. 50% 가격에 파셔야 할듯', '220206');
+values('park_22_02_06_14_05_01' ,'park', '가격이 너무 비싸~', '가격이 너무 비싸요. 50% 가격에 파셔야 할듯', '220206', '0');
 
 INSERT INTO complaintPost
-values('lee_220206', 'lee', '환불 좀 해주세요', '환불 좀 해주세요. 이유는 묻지 마세요.', sysdate);
+values('lee_22_02_06_13_08_01', 'lee', '환불 좀 해주세요', '환불 좀 해주세요. 이유는 묻지 마세요.', sysdate, '0');
 
 INSERT INTO complaintPost
-values('chung_220206', 'chung', '피자가 너무 작아~', '피자가 너무 작아서 한입에 다 들어갈듯', '220209');
+values('chung_22_02_06_13_05_10', 'chung', '피자가 너무 작아~', '피자가 너무 작아서 한입에 다 들어갈듯', '220209', '0');
 
 commit;
 
-select  from complaintPost	order by complaintWriteDate asc;
-select  from complaintPost order by complaintWriteDate;
-
+select *  from complaintPost	order by complaintWriteDate asc;
+select  * from complaintPost order by complaintWriteDate;
 
 ----------------------------------------------------------------------------
 ----------------------------------------------------------------------------
@@ -86,20 +86,26 @@ CREATE TABLE eventPost(
     eventImgSrc varchar2(100),
     eventTitle varchar2(50),
     eventBody varchar2(500),
-    eventWriteDate TIMESTAMP
+    eventWriteDate TIMESTAMP DEFAULT sysdate
 );
 
 INSERT INTO eventPost
-values('1234', 'c://img', '피자할인', '피자 할인을 진행합니다', sysdate);
+values('e_22_02_10_04_10_23', 'c://img', '피자할인', '피자 할인을 진행합니다', sysdate);
 
 INSERT INTO eventPost
-values('12345' ,'c://img', '콜라무료', '음료 할인을 진행합니다', sysdate);
+values('e_22_02_10_06_10_23' ,'c://img', '콜라무료', '음료 할인을 진행합니다', sysdate);
 
 INSERT INTO eventPost
-values('123456', 'c://img', '사이드할인', '사이드 할인을 진행합니다', sysdate);
+values('e_22_03_10_04_10_23', 'c://img', '사이드할인', '사이드 할인을 진행합니다', sysdate);
 
 INSERT INTO eventPost
-values('1234567', 'c://img', '금액할인', '금액 할인을 진행합니다', sysdate);
+values('e_22_03_15_04_16_23', 'c://img', '금액할인', '금액 할인을 진행합니다', sysdate);
+
+INSERT INTO eventPost
+values('e_22_02_10_08_58_36', 'c://img', '쉬림프 피자 30% 할인 이벤트', '매장으로 오셔서 앞구르기 하시면 할인 받을 수 있습니다', '22/02/10 08:58:36.000000000');
+
+INSERT INTO eventPost
+values('e_22_02_10_09_22_32', 'c://img', '오븐 스파게티 드립니다~', '포테이토 베이컨 피자에 치즈 크러스트를 추가하시면 오븐 스파게티를 함께 드립니다', '22/02/10 09:22:32.000000000');
 
 commit;
 
@@ -168,3 +174,18 @@ commit;
 select * from food order by foodCategory desc;
 
 select * from food where foodCategory='피자';
+
+
+---------------------------------------------
+
+    Drop table cart;
+    CREATE TABLE cart 
+    (cartId VARCHAR2(40) primary key, 
+	id VARCHAR2(20),
+    foodKey VARCHAR2(20),
+	foodName VARCHAR2(20),
+	foodImg VARCHAR2(20),
+    foodPrice VARCHAR2(10),
+    foodCount VARCHAR2(5)
+    );
+    commit;
