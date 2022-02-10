@@ -1,0 +1,88 @@
+@charset "UTF-8";
+header{
+    display:flex;
+    justify-content: center;
+}
+.formDiv {
+	display:flex;
+	justify-content: center;
+}
+form{
+    padding:10px;
+}
+
+.radio input[type="radio"]{
+  display:none;
+}
+
+.radio input[type="radio"] + span{
+  display:inline-block;
+  background:none;
+  border:1px solid #dfdfdf;  
+  padding:0px 10px;
+  text-align:center;
+  height:35px;
+  line-height:33px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.radio input[type="radio"]:checked + span{
+  border:1px solid #23a3a7;
+  background:#23a3a7;
+  color:#fff;
+}
+
+.inputBox{
+    position:relative;
+    margin:10px 0;
+}
+.inputBox input {
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #ccc;
+    padding:20px 0px 5px 0px;
+    font-size:15pt;
+    width:100%;
+    font-family:-webkit-body
+}
+.inputBox input::placeholder{
+    color:transparent;
+}
+
+.inputBox input:placeholder-shown + label{
+    color:#aaa;
+    font-size:14pt;
+    top:15px;
+}
+.inputBox input:focus + label, .inputBox label {
+    color:#8aa1a1;
+    font-size:10pt;
+    pointer-events: none;
+    position: absolute;
+    left:0px;
+    top:0px;
+    transition: all 0.2s ease ;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+}
+
+.button {
+	display:flex;
+	justify-content:space-around;
+}
+.inputBox input:focus, input:not(:placeholder-shown), textarea:focus, textarea:not(:placeholder-shown){
+    border-bottom: solid 1px #8aa1a1;
+    outline:none;
+}
+input[type=submit], input[type=button]{
+    background-color: #23a3a7;
+    border:none;
+    color:white;
+    border-radius: 5px;
+    width:40%;
+    height:35px;
+    font-size: 12pt;
+    margin-top:100px;
+    cursor:pointer;

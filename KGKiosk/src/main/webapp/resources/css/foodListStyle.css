@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.all {
+    display:flex;
+    justify-content:center;
+}
+
+.compList {
+    width:1000px;
+    height:600px;
+    overflow:auto;
+    
+}
+.compList .header {
+    display:flex;
+    font-weight:bold;
+    list-style-type: none;
+    justify-content:space-around;
+    align-items:center;
+}
+.subRow.category.header input {
+    color:white;
+    font-weight:bold;
+    background:#c00727;
+    border:0px;
+    border-radius:12px;
+    height:40px;
+    width:100px;
+    box-shadow: 3px 3px 6px 2px #c1c1c1e3;
+}
+.subRow.category.header input:hover {
+    color:#c00727;
+    background:#ffffff;
+}
+.compList .subRow.category {width:20%;}
+.compList .subRow.name {width:60%; font-weight:bold;}
+.compList .subRow.price {width:20%}
+.compList .subRow.stock {width:20%; color:#c00727f;}
+
+.compList .row {
+    display:flex;
+    list-style-type: none;
+    justify-content:space-around;
+}
+
+.subRow.name a {
+    text-decoration:none;
+    color:black;
+}
+.subRow.name a:hover {
+    color:#c00727
+}
+.row .subRow.stock {color:#c00727;}
+#headerHr {
+    margin:10px 20px 0px 20px;
+    border: solid 1px #c007274a;
+}

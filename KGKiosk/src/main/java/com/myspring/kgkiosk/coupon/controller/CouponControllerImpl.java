@@ -27,7 +27,7 @@ public class CouponControllerImpl implements CouponController{
 	public ModelAndView listAllCouponList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
-		List CouponLists = couponService.listAllCouponList();
+		List<CouponVO> CouponLists = couponService.listAllCouponList();
 		mav.addObject("CouponLists", CouponLists);
 		mav.setViewName(viewName);
 		return mav;
@@ -75,6 +75,7 @@ public class CouponControllerImpl implements CouponController{
 	@RequestMapping(value = "/coupon/removeCoupon.do", method = RequestMethod.POST)
 	public ModelAndView removeCoupon(String couponKey, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
@@ -83,5 +84,55 @@ public class CouponControllerImpl implements CouponController{
 		mav.setViewName(viewName);
 		return mav;
 	}
-
+	
+	@Override
+	@RequestMapping(value = "/coupon/couponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/couponPage");
+		return mav;
+		
+	}
+	
+	@Override
+	@RequestMapping(value = "/coupon/removeCouponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoRemoveCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/removeCouponPage");
+		return mav;
+		
+	}
+	
+	@Override
+	@RequestMapping(value = "/coupon/addCouponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoAddCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/addCouponPage");
+		return mav;
+		
+	}
+	
+	/*
+	 * @Override
+	 * 
+	 * @RequestMapping(value = "/coupon/memListAllCoupon.do", method =
+	 * RequestMethod.GET) public ModelAndView gotoListCoupon(HttpServletRequest
+	 * request, HttpServletResponse response) throws Exception { ModelAndView mav =
+	 * new ModelAndView("/coupon/memListAllCoupon"); return mav;
+	 * 
+	 * }
+	 */
+	
+	@Override
+	@RequestMapping(value = "/coupon/memCheckListAllCoupon.do", method = RequestMethod.GET)
+	public ModelAndView memListAllCouponList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		List<CouponVO> CouponLists = couponService.listAllCouponList();
+		mav.addObject("CouponLists", CouponLists);
+		mav.setViewName(viewName);
+		return mav;
+	}
+	
+	
 }

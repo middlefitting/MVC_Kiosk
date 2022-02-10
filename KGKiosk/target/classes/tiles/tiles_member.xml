@@ -19,7 +19,7 @@
    </definition>
 
    <definition name="adminMain" extends="baseLayout">
-      <put-attribute name="title" value="문의내역" />
+      <put-attribute name="title" value="관리자메인페이지" />
       <put-attribute name="header" value="/WEB-INF/views/admin/adminHeader.jsp" />
       <put-attribute name="body" value="/WEB-INF/views/admin/adminMain.jsp" />
    </definition>
@@ -53,6 +53,12 @@
       <put-attribute name="title" value="회원탈퇴" />
       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
       <put-attribute name="body" value="/WEB-INF/views/member/removeMemberForm.jsp" />
+   </definition>
+   
+    <definition name="/uploadForm" extends="baseLayout">
+      <put-attribute name="title" value="회원탈퇴" />
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+      <put-attribute name="body" value="/WEB-INF/uploadForm.jsp" />
    </definition>
    
 </tiles-definitions>
