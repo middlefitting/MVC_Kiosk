@@ -27,8 +27,8 @@
      	<ul>
      		<li class="topMenuLi"><a class="menuLink" href="${contextPath}/complaintpost/listAllComplaintPostList.do">문의내역</a></li>
      		<li class="topMenuLi"><a class="menuLink" href="${contextPath}/eventpost/listAllEventPostList.do">이벤트관리</a></li>
-     		<li class="topMenuLi"><a class="menuLink" href="">메뉴관리</a></li>
-     		<li class="topMenuLi"><a class="menuLink" href="">쿠폰관리</a></li>
+     		<li class="topMenuLi"><a class="menuLink" href="${contextPath}/food/listAllFoodList.do">메뉴관리</a></li>
+     		<li class="topMenuLi"><a class="menuLink" href="${contextPath}/coupon/couponPage.do">쿠폰관리</a></li>
      	</ul>
      </td>
      <td>

@@ -13,5 +13,13 @@ public interface CouponController {
 	public ModelAndView viewSingleCoupon(String couponKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView addCoupon(CouponVO couponVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView modifyCoupon(CouponVO couponVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView removeCoupon(String couponKey, HttpServletRequest request, HttpServletResponse response) throws Exception;	
+	public ModelAndView removeCoupon(String couponKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView gotoCoupon(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView gotoRemoveCoupon(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView gotoAddCoupon(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	//public ModelAndView gotoListCoupon(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView memListAllCouponList(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
+	
+
 }

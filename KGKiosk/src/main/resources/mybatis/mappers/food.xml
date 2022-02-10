@@ -16,7 +16,7 @@
 
 	<select id="selectAllFoodList" resultMap="foodResult">
       <![CDATA[
-         select * from food	order by foodCategory
+         select * from food	order by foodCategory desc
       ]]>
 	</select>
 	
