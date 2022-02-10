@@ -30,7 +30,7 @@
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/logout.do">
+			<a href="${contextPath}/food/listAllFoodList.do">
 				메뉴관리
 			</a>
 		</div>
