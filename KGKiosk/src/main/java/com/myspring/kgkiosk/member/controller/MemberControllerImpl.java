@@ -1,5 +1,6 @@
 package com.myspring.kgkiosk.member.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,10 +37,17 @@ public class MemberControllerImpl implements MemberController {
 	private ComplaintPostVO complaintPostVO ;
 	
 	@RequestMapping(value = {"/main.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	private ModelAndView main(RedirectAttributes rAttr, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+
+		System.out.println(session.getAttribute("errorType"));
+		if(session.getAttribute("errorType") == "loginError"){
+			 mav.addObject("errorType","loginError");
+			 session.removeAttribute("errorType");
+		}
 		return mav;
 	}
 	

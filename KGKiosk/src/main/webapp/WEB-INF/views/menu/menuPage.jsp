@@ -236,6 +236,26 @@
   display: none;
 } */
 </style>
+
+  <c:choose>	
+	<c:when test="${errorType=='alreadyCart'}">
+	  <script>
+	    window.onload=function(){
+	      alert("이미 담긴 상품입니다.");
+	    }
+	    ${errorType=''}
+	  </script>
+	</c:when>
+		<c:when test="${errorType=='successCart'}">
+	  <script>
+	    window.onload=function(){
+	      alert("상품을 성공적으로 담았습니다.");
+	    }
+	    ${errorType=''}
+	  </script>
+	</c:when>
+  </c:choose>
+
 </head>
 <body>
 <h2>메뉴</h2>

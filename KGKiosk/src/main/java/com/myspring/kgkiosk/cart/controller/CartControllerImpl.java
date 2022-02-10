@@ -36,6 +36,15 @@ public class CartControllerImpl implements CartController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		
+		//로그인 안되면 주문 불가
+		if(session.getAttribute("member") == null) {
+			session.setAttribute("errorType", "loginError");
+			mav.setViewName("redirect:/main.do");
+			session.removeAttribute("orderType");
+			return mav;
+		}
+		
 		cartVO.setId(memberVO.getId());
 		List CartLists = cartService.listCartList(cartVO);
 		mav.addObject("CartLists", CartLists);
@@ -51,6 +60,19 @@ public class CartControllerImpl implements CartController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		
+		//로그인 안되면 주문 불가
+		if(session.getAttribute("member") == null) {
+			session.setAttribute("errorType", "loginError");
+			mav.setViewName("redirect:/main.do");
+			session.removeAttribute("orderType");
+			return mav;
+		}
+			
+			
+			
+			
+		
 		cartVO.setId(memberVO.getId());
 		cartVO.setCartId(memberVO.getId()+cartVO.getFoodKey());
 //		String key = cartVO.getFoodKey();
@@ -58,7 +80,12 @@ public class CartControllerImpl implements CartController{
 		int result = 0;
 		try {
 			result = cartService.addCart(cartVO);
-		}catch(Exception e){}
+		}catch(Exception e){
+			session.setAttribute("errorType", "alreadyCart");
+			mav.addObject("result", result);
+			mav.setViewName("redirect:/menu/pizzaMenuPage.do");	
+			return mav;
+		}
 		
 		
 
@@ -72,6 +99,7 @@ public class CartControllerImpl implements CartController{
 //		if(result != 0) {
 //			mav.setViewName("redirect:/main.do");
 //			mav.setViewName("redirect:/menu/"+key+"SingleMenu.do");
+		session.setAttribute("errorType", "successCart");
 		mav.addObject("result", result);
 		mav.setViewName("redirect:/menu/pizzaMenuPage.do");	
 //		}
@@ -103,7 +131,6 @@ public class CartControllerImpl implements CartController{
 		mav.addObject("result", result);
 		mav.setViewName(viewName);
 		return mav;
-		
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,8 @@ public class FoodControllerImpl implements FoodController{
 	public ModelAndView listAllCategoryFoodList(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
+		HttpSession session = request.getSession();
+		
 		if(viewName.contains("pizza")) {
 			foodVO.setFoodCategory("피자");
 		}
@@ -49,11 +52,33 @@ public class FoodControllerImpl implements FoodController{
 		else if(viewName.contains("beverage")) {
 			foodVO.setFoodCategory("음료");
 		}
+		else {
+			foodVO.setFoodCategory("피자");
+		}
+		
+		//주문 타입
+		if(viewName.contains("delivery")) {
+			session.setAttribute("orderType", "delivery");
+		}
+		else if(viewName.contains("package")) {
+			session.setAttribute("orderType", "package");
+		}
+		
 		String result = (String)request.getAttribute("result");
 		ModelAndView mav = new ModelAndView();
 		List FoodLists = foodService.listAllCategoryFoodList(foodVO);
 		mav.addObject("FoodLists", FoodLists);
 		mav.setViewName(viewName);
+		
+		if(session.getAttribute("errorType") == "alreadyCart"){
+			 mav.addObject("errorType","alreadyCart");
+			 session.removeAttribute("errorType");
+		}
+		else if(session.getAttribute("errorType") == "successCart"){
+			 mav.addObject("errorType","successCart");
+			 session.removeAttribute("errorType");
+		}
+		
 		return mav;
 	}
 	
