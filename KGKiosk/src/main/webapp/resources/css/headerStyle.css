@@ -1,6 +1,12 @@
 @charset "UTF-8";
-body { min-width:912px }
-#all { width:100vw }
+html, body { min-width:960px }
+#all { 
+    margin-top:30px;
+    width:100vw;
+    display:flex;
+	justify-content:center;
+	align-items:center;
+}
 #logo { width:20vw }
 #address { width:10vw }
 #login { width:10vw }
@@ -29,8 +35,9 @@ body { min-width:912px }
 }
 .menuLink, .submenuLink {           /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
     text-decoration:none;               
-    display: block;                     
-    width: 150px;                       
+    display: block; 
+    justify-content:space-around;               
+    width: 130px;                       
     font-size: 15px;                    
     font-weight: bold;                 
     /* font-family: "Trebuchet MS", Dotum;  */
@@ -69,7 +76,7 @@ body { min-width:912px }
  -webkit-transition: height .2s; 
  -moz-transition: height .2s; 
  -o-transition: height .2s; 
- width: 80vw;           
+ width: 60vw;           
  left: 0;                
 
 

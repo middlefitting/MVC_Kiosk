@@ -1,8 +1,9 @@
 package com.myspring.kgkiosk.complaintpost.vo;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
-import oracle.sql.TIMESTAMP;
 
 @Component("complaintPostVO")
 public class ComplaintPostVO {
@@ -10,7 +11,8 @@ public class ComplaintPostVO {
 	private String complaintPostId;
 	private String complaintPostTitle;
 	private String complaintPostBody;
-	private TIMESTAMP complaintWriteDate;
+	private Timestamp complaintWriteDate;
+	private String complaintAnswer;
 	
 	/*
 	 * public ComplaintPostVO() {
@@ -57,12 +59,19 @@ public class ComplaintPostVO {
 		this.complaintPostBody = complaintPostBody;
 	}
 
-	public TIMESTAMP getComplaintWriteDate() {
+	public Timestamp getComplaintWriteDate() {
 		return complaintWriteDate;
 	}
 
-	public void setComplaintWriteDate(TIMESTAMP complaintWriteDate) {
+	public void setComplaintWriteDate(Timestamp complaintWriteDate) {
 		this.complaintWriteDate = complaintWriteDate;
 	}
 	
+	public String getComplaintAnswer() {
+		return complaintAnswer;
+	}
+
+	public void setComplaintAnswer(String complaintAnswer) {
+		this.complaintAnswer = complaintAnswer;
+	}
 }
