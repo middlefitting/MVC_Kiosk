@@ -140,7 +140,7 @@ select * from coupon order by CouponEndDate desc;
 
 ----------------------------------------------------------------------------
 ----------------------------------------------------------------------------
-
+Drop table food;
 CREATE table food (      
     foodKey varchar2(50) PRIMARY KEY,
     foodCategory varchar2(10),
@@ -187,5 +187,19 @@ select * from food where foodCategory='피자';
 	foodImg VARCHAR2(20),
     foodPrice VARCHAR2(10),
     foodCount VARCHAR2(5)
+    );
+    commit;
+    
+    
+----------------------------------------------
+    Drop table orderTable;
+    CREATE TABLE orderTable 
+    (orderKey VARCHAR2(20)  primary key,
+    id VARCHAR2(20),
+	foodName VARCHAR2(20),
+	orderPrice VARCHAR2(20),
+    orderType VARCHAR2(10),
+    orderBY VARCHAR2(10),
+    orderSale VARCHAR2(10)
     );
     commit;
