@@ -48,8 +48,8 @@
 			<label for="foodInfo">제품 설명</label>
 		</div>
 		<div class="inputBox">
-			<input type="text" name="foodImg" id="foodImg" value="" size="40"placeholder="이미지">
-			<label for="foodImg">이미지</label>
+			<input type="file" name="foodImg"  id="foodImg" onchange="readURL(this);" />
+			<label for="eventBody">이미지 추가</label>
 		</div>
 		<div class="button">
 			<input type="submit" value="등록" > 

@@ -189,3 +189,19 @@ select * from food where foodCategory='피자';
     foodCount VARCHAR2(5)
     );
     commit;
+
+    
+    
+------------------------------------------------
+    Drop table orderTable;
+    CREATE TABLE orderTable 
+    (orderKey VARCHAR2(50)  primary key,
+    id VARCHAR2(50),
+	foodName VARCHAR2(500),
+	orderPrice VARCHAR2(50),
+    orderType VARCHAR2(50),
+    orderBY VARCHAR2(50),
+    orderSale VARCHAR2(50)
+    );
+    commit;
+    select * from orderTable;
