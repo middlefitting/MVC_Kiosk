@@ -1,8 +1,10 @@
 package com.myspring.kgkiosk.eventpost.vo;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
-import oracle.sql.TIMESTAMP;
+
 
 @Component("eventPostVO")
 public class EventPostVO {
@@ -10,7 +12,7 @@ public class EventPostVO {
 	private String eventImgSrc;
 	private String eventTitle;
 	private String eventBody;
-	private TIMESTAMP eventWriteDate;
+	private Timestamp eventWriteDate;
 	public String getEventKey() {
 		return eventKey;
 	}
@@ -35,10 +37,10 @@ public class EventPostVO {
 	public void setEventBody(String eventBody) {
 		this.eventBody = eventBody;
 	}
-	public TIMESTAMP getEventWriteDate() {
+	public Timestamp getEventWriteDate() {
 		return eventWriteDate;
 	}
-	public void setEventWriteDate(TIMESTAMP eventWriteDate) {
+	public void setEventWriteDate(Timestamp eventWriteDate) {
 		this.eventWriteDate = eventWriteDate;
 	}	
 	

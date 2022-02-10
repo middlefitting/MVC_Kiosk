@@ -20,12 +20,12 @@
    <h2>관리자 메인 페이지</h2>
    <div class="pageMenu">
 		<div class="subMenu">
-			<a href="${contextPath}/admin/complaintPage.do">
+			<a href="${contextPath}/complaintpost/listAllComplaintPostList.do">
 				문의내역
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/modifyMemberForm.do">
+			<a href="${contextPath}/eventpost/listAllEventPostList.do">
 				이벤트관리
 			</a>
 		</div>
