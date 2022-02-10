@@ -33,7 +33,7 @@
      				<li><a href="${contextPath}/menu/beverageMenuPage.do" class="submenuLink">음료&기타</a></li>
      			</ul>
      		</li>
-     		<li class="topMenuLi"> <a class="menuLink" href="">쿠폰</a> </li>
+     		<li class="topMenuLi"> <a class="menuLink" href="${contextPath}/coupon/memCheckListAllCoupon.do">쿠폰</a> </li>
      		<li class="topMenuLi"> <a class="menuLink" href="">이벤트</a>
      			<ul class="submenu"> 
      				<li><a href="" class="submenuLink">이벤트</a></li> 

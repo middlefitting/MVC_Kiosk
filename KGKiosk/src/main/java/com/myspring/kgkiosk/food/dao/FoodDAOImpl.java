@@ -34,19 +34,22 @@ public class FoodDAOImpl implements FoodDAO{
 
 	@Override
 	public int insertFood(FoodVO foodVO) throws DataAccessException {
-		int result = sqlSession.selectOne("mapper.food.insertFood", foodVO);
+		int result = 1;
+		sqlSession.selectOne("mapper.food.insertFood", foodVO);
 		return result;
 	}
 
 	@Override
 	public int updateFood(FoodVO foodVO) throws DataAccessException {
-		int result = sqlSession.selectOne("mapper.food.updateFood", foodVO);
+		int result = 1;
+		sqlSession.selectOne("mapper.food.updateFood", foodVO);
 		return result;
 	}
 
 	@Override
 	public int deleteFood(FoodVO foodVO) throws DataAccessException {
-		int result = sqlSession.selectOne("mapper.food.deleteFood", foodVO);
+		int result = 1;
+		sqlSession.selectOne("mapper.food.deleteFood", foodVO);
 		return result;
 	}
 	
