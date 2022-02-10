@@ -27,14 +27,14 @@
 			<label for="eventBody">이벤트 내용</label>
 		</div>
 		<div class="inputBox">
-			<input type="text" name="eventImgSrc" id="eventImgSrc" value="" size="20"placeholder="이미지">
-			<label for="eventImgSrc">이미지</label>
+			<input type="file" name="eventImgSrc"  id="eventImgSrc" onchange="readURL(this);" />
+			<label for="eventBody">이미지 추가</label>
 		</div>
 		<div class="button">
 			<input type="submit" value="등록" > 
-		</div>
-		
+		</div>	
 	</form>
+
 </div>
 </body>
 </html>
