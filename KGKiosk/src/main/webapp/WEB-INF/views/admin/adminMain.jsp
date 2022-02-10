@@ -25,7 +25,7 @@
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/modifyMemberForm.do">
+			<a href="${contextPath}/eventpost/listAllEventPostList.do">
 				이벤트관리
 			</a>
 		</div>
