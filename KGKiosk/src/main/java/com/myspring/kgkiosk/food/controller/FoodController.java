@@ -12,6 +12,7 @@ public interface FoodController {
 	public ModelAndView listAllFoodList(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView listAllCategoryFoodList(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView viewSingleFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView viewSingleFoodAdmin(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView addFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView modifyFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView removeFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response) throws Exception;	

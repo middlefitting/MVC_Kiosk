@@ -53,20 +53,66 @@ public class FoodControllerImpl implements FoodController{
 	}
 	
 	@Override
-	@RequestMapping(value = "/food/listAllCategoryFoodList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu/*MenuPage.do", method = RequestMethod.GET)
 	public ModelAndView listAllCategoryFoodList(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
+		HttpSession session = request.getSession();
+		
+		if(viewName.contains("pizza")) {
+			foodVO.setFoodCategory("피자");
+		}
+		else if(viewName.contains("side")) {
+			foodVO.setFoodCategory("사이드");
+		}
+		else if(viewName.contains("beverage")) {
+			foodVO.setFoodCategory("음료");
+		}
+		else {
+			foodVO.setFoodCategory("피자");
+		}
+		
+		//주문 타입
+		if(viewName.contains("delivery")) {
+			session.setAttribute("orderType", "delivery");
+		}
+		else if(viewName.contains("package")) {
+			session.setAttribute("orderType", "package");
+		}
+		
+		String result = (String)request.getAttribute("result");
 		ModelAndView mav = new ModelAndView();
 		List FoodLists = foodService.listAllCategoryFoodList(foodVO);
 		mav.addObject("FoodLists", FoodLists);
+		mav.setViewName(viewName);
+		
+		if(session.getAttribute("errorType") == "alreadyCart"){
+			 mav.addObject("errorType","alreadyCart");
+			 session.removeAttribute("errorType");
+		}
+		else if(session.getAttribute("errorType") == "successCart"){
+			 mav.addObject("errorType","successCart");
+			 session.removeAttribute("errorType");
+		}
+		
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/menu/*SingleMenu.do", method = RequestMethod.GET)
+	public ModelAndView viewSingleFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		foodVO = foodService.viewSingleFood(foodVO);		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("foodVO", foodVO);
 		mav.setViewName(viewName);
 		return mav;
 	}
 	
 	@Override
 	@RequestMapping(value = "/food/adminViewSingleFood.do", method = RequestMethod.GET)
-	public ModelAndView viewSingleFood(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView viewSingleFoodAdmin(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();

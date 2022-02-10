@@ -22,4 +22,21 @@
 	      <put-attribute name="body" value="/WEB-INF/views/menu/adminViewSingleFood.jsp" />
 	</definition>
 	<!-- =====client===== -->	
+	<definition name="/menu/*MenuPage" extends="baseLayout">
+	      <put-attribute name="title" value="메인페이지" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/menu/menuPage.jsp" />
+	</definition>
+	
+	<definition name="/menu/*SingleMenu" extends="baseLayout">
+	      <put-attribute name="title" value="메인페이지" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/menu/singleMenuPage.jsp" />
+	</definition>
+	
+	<definition name="/cart/listCartList" extends="baseLayout">
+	      <put-attribute name="title" value="메인페이지" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/cart/cartPage.jsp" />
+	</definition>
 </tiles-definitions>
