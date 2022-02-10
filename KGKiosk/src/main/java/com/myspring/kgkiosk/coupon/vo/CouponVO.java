@@ -1,8 +1,11 @@
 package com.myspring.kgkiosk.coupon.vo;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
-import oracle.sql.DATE;
+
 
 @Component("couponVO")
 public class CouponVO {
@@ -12,7 +15,8 @@ public class CouponVO {
 	private String couponPercent;
 	private String couponAmount;
 	private String couponLeast;
-	private DATE couponEndDate;
+	@DateTimeFormat(pattern = "yy/mm/dd")
+	private Date couponEndDate;
 	
 	public String getCouponKey() {
 		return couponKey;
@@ -44,10 +48,10 @@ public class CouponVO {
 	public void setCouponLeast(String couponLeast) {
 		this.couponLeast = couponLeast;
 	}
-	public DATE getCouponEndDate() {
+	public Date getCouponEndDate() {
 		return couponEndDate;
 	}
-	public void setCouponEndDate(DATE couponEndDate) {
+	public void setCouponEndDate(Date couponEndDate) {
 		this.couponEndDate = couponEndDate;
 	}
 

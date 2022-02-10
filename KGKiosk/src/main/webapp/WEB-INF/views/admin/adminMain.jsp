@@ -16,7 +16,6 @@
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/mypageStyle.css">
 </head>
 <body>
-
    <h2>관리자 메인 페이지</h2>
    <div class="pageMenu">
 		<div class="subMenu">
@@ -35,7 +34,8 @@
 			</a>
 		</div>
 		<div class="subMenu">
-			<a href="${contextPath}/member/logout.do">
+			<a href="${contextPath}/coupon/couponPage.do">
+								<!-- couponController에 admin/couponPage.do로 간다 -->
 				쿠폰관리
 			</a>
 		</div>

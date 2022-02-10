@@ -30,7 +30,7 @@
   <insert id="insertCoupon"  parameterType="couponVO">
 		<![CDATA[
 		 insert into coupon(couponKey, couponName, couponPercent, couponAmount, couponLeast, couponEndDate)
-		 values(#{couponKey}, #{couponName}, #{couponPercent}, #{couponAmount}, #{couponLeast}, #{couponEndDate})
+		 values(#{couponKey,jdbcType=VARCHAR}, #{couponName,jdbcType=VARCHAR}, #{couponPercent,jdbcType=VARCHAR}, #{couponAmount,jdbcType=VARCHAR}, #{couponLeast,jdbcType=VARCHAR}, #{couponEndDate,jdbcType=VARCHAR})
 		]]>      
 	</insert>
 	
