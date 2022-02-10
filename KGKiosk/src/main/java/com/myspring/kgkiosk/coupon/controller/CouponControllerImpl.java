@@ -86,11 +86,40 @@ public class CouponControllerImpl implements CouponController{
 	}
 	
 	@Override
-	@RequestMapping(value = "/admin/couponPage.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/coupon/couponPage.do", method = RequestMethod.GET)
 	public ModelAndView gotoCoupon(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		ModelAndView mav = new ModelAndView("/admin/couponPage");
+		ModelAndView mav = new ModelAndView("/coupon/couponPage");
 		return mav;
 		
 	}
+	
+	@Override
+	@RequestMapping(value = "/coupon/removeCouponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoRemoveCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/removeCouponPage");
+		return mav;
+		
+	}
+	
+	@Override
+	@RequestMapping(value = "/coupon/addCouponPage.do", method = RequestMethod.GET)
+	public ModelAndView gotoAddCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/addCouponPage");
+		return mav;
+		
+	}
+	
+	@Override
+	@RequestMapping(value = "/coupon/allCouponList.do", method = RequestMethod.GET)
+	public ModelAndView gotoListCoupon(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav = new ModelAndView("/coupon/allCouponList");
+		return mav;
+		
+	}
+	
+	
 }
