@@ -28,8 +28,8 @@
     
   <insert id="insertEventPost"  parameterType="eventPostVO">
 		<![CDATA[
-		 insert into eventPost(eventKey, eventImgSrc, eventTitle, eventBody, eventWriteDate)
-		 values(#{eventKey}, #{eventImgSrc}, #{eventTitle}, #{eventBody}, #{eventWriteDate})
+		 insert into eventPost(eventKey, eventImgSrc, eventTitle, eventBody)
+		 values(#{eventKey}, #{eventImgSrc}, #{eventTitle}, #{eventBody})
 		]]>      
 	</insert>
 	
@@ -37,7 +37,7 @@
    <update id="updateEventPost"  parameterType="eventPostVO">
      <![CDATA[
 	     update eventPost
-	     set eventImgSrc=#{eventImgSrc}, eventTitle=#{eventTitle}, eventBody=#{eventBody}, eventWriteDate=#{eventWriteDate}
+	     set eventImgSrc=#{eventImgSrc}, eventTitle=#{eventTitle}, eventBody=#{eventBody}
 	     where
 	     eventKey=#{eventKey}
       ]]>      

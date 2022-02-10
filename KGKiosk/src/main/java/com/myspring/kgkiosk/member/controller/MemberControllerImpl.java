@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myspring.kgkiosk.complaintpost.service.ComplaintPostService;
 import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
 import com.myspring.kgkiosk.member.service.MemberService;
 import com.myspring.kgkiosk.member.vo.MemberVO;
@@ -29,6 +30,10 @@ public class MemberControllerImpl implements MemberController {
 	private MemberService memberService;
 	@Autowired
 	private MemberVO memberVO ;
+	@Autowired
+	private ComplaintPostService complaintPostService;
+	@Autowired
+	private ComplaintPostVO complaintPostVO ;
 	
 	@RequestMapping(value = {"/main.do"}, method = RequestMethod.GET)
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -142,8 +147,11 @@ public class MemberControllerImpl implements MemberController {
 		
 		memberVO = (MemberVO) session.getAttribute("member");
 		memberVO = memberService.viewSingleMember(memberVO.getId());
+		
+		List<ComplaintPostVO> ComplaintPostLists = complaintPostService.listAllComplaintPostList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberVO",memberVO);
+		mav.addObject("ComplaintPostLists", ComplaintPostLists);
 		mav.setViewName(viewName);
 		return mav;
 	}	
@@ -165,12 +173,14 @@ public class MemberControllerImpl implements MemberController {
 	}
 	
 	@Override
-	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.POST)
 	public ModelAndView removeMember(@RequestParam("id") String id, 
-			           HttpServletRequest request, HttpServletResponse response) throws Exception{
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int result = 0;
+		HttpSession session = request.getSession();
+		session.removeAttribute("member");
 		result = memberService.removeMember(id);
-		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
+		ModelAndView mav = new ModelAndView("redirect:/main.do");
 		mav.addObject("result", result);
 		return mav;
 	}
