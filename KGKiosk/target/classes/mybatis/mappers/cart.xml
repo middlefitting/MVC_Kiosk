@@ -12,6 +12,7 @@
         <result property="foodImg" column="foodImg" />
         <result property="foodPrice" column="foodPrice" />
         <result property="foodCount" column="foodCount" />
+        <result property="addedPrice" column="addedPrice" />
 	</resultMap> 
 		
 	<select id="selectCartList" parameterType="cartVO" resultMap="cartResult">
@@ -23,8 +24,8 @@
     
   <insert id="insertCart"  parameterType="cartVO">
 		<![CDATA[
-		 insert into cart(cartId, id, foodKey, foodName, foodImg, foodPrice, foodCount)
-		 values(#{cartId}, #{id}, #{foodKey}, #{foodName}, #{foodImg}, #{foodPrice}, #{foodCount})
+		 insert into cart(cartId, id, foodKey, foodName, foodImg, foodPrice, foodCount, addedPrice)
+		 values(#{cartId}, #{id}, #{foodKey}, #{foodName}, #{foodImg}, #{foodPrice}, #{foodCount}, #{addedPrice})
 		]]>      
 	</insert>
      
