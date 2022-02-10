@@ -33,10 +33,15 @@
       	  <put-attribute name="header" value="/WEB-INF/views/admin/adminHeader.jsp"/>
 	      <put-attribute name="body" value="/WEB-INF/views/coupon/addCouponPage.jsp"/>
 	</definition>
-<!-- 	<definition name="/coupon/allCouponList" extends="baseLayout">
+	<definition name="/coupon/memListAllCoupon" extends="baseLayout">
 	      <put-attribute name="title" value="쿠폰페이지" />
-      	  <put-attribute name="header" value="/WEB-INF/views/admin/adminHeader.jsp"/>
-	      <put-attribute name="body" value="/WEB-INF/views/coupon/allCouponList.jsp"/>
-	</definition> -->
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+	      <put-attribute name="body" value="/WEB-INF/views/coupon/memListAllCouponList.jsp"/>
+	</definition>
+		<definition name="/coupon/memCheckListAllCoupon" extends="baseLayout">
+	      <put-attribute name="title" value="메인페이지" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/coupon/memListAllCouponList.jsp" />
+	</definition>
 	
 </tiles-definitions>

@@ -112,13 +112,26 @@ public class CouponControllerImpl implements CouponController{
 		
 	}
 	
+	/*
+	 * @Override
+	 * 
+	 * @RequestMapping(value = "/coupon/memListAllCoupon.do", method =
+	 * RequestMethod.GET) public ModelAndView gotoListCoupon(HttpServletRequest
+	 * request, HttpServletResponse response) throws Exception { ModelAndView mav =
+	 * new ModelAndView("/coupon/memListAllCoupon"); return mav;
+	 * 
+	 * }
+	 */
+	
 	@Override
-	@RequestMapping(value = "/coupon/allCouponList.do", method = RequestMethod.GET)
-	public ModelAndView gotoListCoupon(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		ModelAndView mav = new ModelAndView("/coupon/allCouponList");
+	@RequestMapping(value = "/coupon/memCheckListAllCoupon.do", method = RequestMethod.GET)
+	public ModelAndView memListAllCouponList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		List<CouponVO> CouponLists = couponService.listAllCouponList();
+		mav.addObject("CouponLists", CouponLists);
+		mav.setViewName(viewName);
 		return mav;
-		
 	}
 	
 	
