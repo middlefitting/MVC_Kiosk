@@ -26,12 +26,11 @@
      <!-- 메뉴바 -->
      <div id="topMenu" >
      	<ul> 
-     		<li class="topMenuLi"> <a class="menuLink" href="">메뉴</a> 
+     		<li class="topMenuLi"> <a href="${contextPath}/menu/pizzaMenuPage.do" class="menuLink">메뉴</a> 
      			<ul class="submenu">
-     				<li><a href="" class="submenuLink">피자</a></li>
-     				<li><a href="" class="submenuLink">세트</a></li> 
-     				<li><a href="" class="submenuLink">사이드</a></li> 
-     				<li><a href="" class="submenuLink">음료&기타</a></li>
+     				<li><a href="${contextPath}/menu/pizzaMenuPage.do" class="submenuLink">피자</a></li>
+     				<li><a href="${contextPath}/menu/sideMenuPage.do" class="submenuLink">사이드</a></li> 
+     				<li><a href="${contextPath}/menu/beverageMenuPage.do" class="submenuLink">음료&기타</a></li>
      			</ul>
      		</li>
      		<li class="topMenuLi"> <a class="menuLink" href="">쿠폰</a> </li>
@@ -64,7 +63,7 @@
 		</c:choose>     
 	</div>
     <div id="cart">
-     	<a href="#">
+     	<a href="${contextPath}/cart/listCartList.do">
 			<img src="${contextPath}/resources/image/cartIcon.png" height="40px">
 		</a>
      </div>

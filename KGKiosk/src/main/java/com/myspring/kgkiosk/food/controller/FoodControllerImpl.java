@@ -107,6 +107,7 @@ public class FoodControllerImpl implements FoodController{
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("foodVO", foodVO);
 		mav.setViewName(viewName);
+
 		return mav;
 	}
 	
@@ -115,8 +116,8 @@ public class FoodControllerImpl implements FoodController{
 	public ModelAndView viewSingleFoodAdmin(FoodVO foodVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
+		foodVO = foodService.viewSingleFood(foodVO);		
 		ModelAndView mav = new ModelAndView();
-		foodVO = foodService.viewSingleFood(foodVO);
 		mav.addObject("foodVO", foodVO);
 		mav.setViewName(viewName);
 		return mav;

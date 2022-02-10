@@ -1,5 +1,6 @@
 package com.myspring.kgkiosk.member.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ import com.myspring.kgkiosk.member.vo.MemberVO;
 
 @Controller("memberController")
 //@EnableAspectJAutoProxy
-public class MemberControllerImpl   implements MemberController {
+public class MemberControllerImpl implements MemberController {
 	
 	@Autowired
 	private MemberService memberService;
@@ -36,10 +37,17 @@ public class MemberControllerImpl   implements MemberController {
 	private ComplaintPostVO complaintPostVO ;
 	
 	@RequestMapping(value = {"/main.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	private ModelAndView main(RedirectAttributes rAttr, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+
+		System.out.println(session.getAttribute("errorType"));
+		if(session.getAttribute("errorType") == "loginError"){
+			 mav.addObject("errorType","loginError");
+			 session.removeAttribute("errorType");
+		}
 		return mav;
 	}
 	
@@ -54,11 +62,18 @@ public class MemberControllerImpl   implements MemberController {
 	}*/
 	
 	@RequestMapping(value = "/adminMain.do", method = RequestMethod.GET)
-	private ModelAndView adminMain2(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = (String)request.getAttribute("viewName");
+	private ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav; 
+		if(session.getAttribute("admin")!=null) {
+			String viewName = (String)request.getAttribute("viewName");			
+			mav.setViewName(viewName);
+			return mav; 
+		}
+		else {
+			mav.setViewName("redirect:/main.do");
+			return mav;
+		}			
 	}
  
 	@Override
@@ -70,7 +85,7 @@ public class MemberControllerImpl   implements MemberController {
 		ModelAndView mav = new ModelAndView();
 		memberVO = memberService.adminLogin(member);
 		if(memberVO != null) {
-		    session.setAttribute("member", memberVO);
+		    session.setAttribute("admin", memberVO);
 		    session.setAttribute("isLogOn", true);
 		    mav.setViewName("redirect:/adminMain.do");
 		    return mav;
@@ -101,6 +116,17 @@ public class MemberControllerImpl   implements MemberController {
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		session.removeAttribute("member");
+		session.removeAttribute("isLogOn");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/main.do");
+		return mav;
+	}	
+	
+	@Override
+	@RequestMapping(value = "/member/adminLogout.do", method =  RequestMethod.GET)
+	public ModelAndView adminLogout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		session.removeAttribute("admin");
 		session.removeAttribute("isLogOn");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/main.do");

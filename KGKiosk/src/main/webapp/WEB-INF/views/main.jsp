@@ -17,7 +17,18 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <%-- <script src="${contextPath}/resources/js/mainJS.js"></script> --%>
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/mainStyle.css">
+  <c:choose>	
+	<c:when test="${errorType=='loginError'}">
+	  <script>
+	    window.onload=function(){
+	      alert("로그인 후 이용해 주세요!");
+	    }
+	    ${errorType=''}
+	  </script>
+	</c:when>
+  </c:choose>
 </head>
+
 <body>
 	<div class="eventBanner">
 		<input type="radio" name="slide" id="slide01" checked>
@@ -51,11 +62,11 @@
 		</div>
 	</div>
 	<div class="orderButton">
-		<div class="deliveryOrder" onclick="location.href='${contextPath}/';">
+		<div class="deliveryOrder" onclick="location.href='${contextPath}/menu/deliveryMenuPage.do';">
 			<img src="${contextPath}/resources/image/deliveryIcon.png" width="100px">
 			<h2>배달주문</h2>
 		</div>
-		<div class="packingOrder" onclick="location.href='${contextPath}/';">
+		<div class="packingOrder" onclick="location.href='${contextPath}/menu/packageMenuPage.do';">
 			<img src="${contextPath}/resources/image/packingIcon.png" width="100px">
 			<h2>포장주문</h2>
 		</div>
