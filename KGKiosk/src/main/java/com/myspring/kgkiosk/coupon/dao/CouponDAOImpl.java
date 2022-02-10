@@ -16,7 +16,7 @@ public class CouponDAOImpl implements CouponDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List selectAllCouponList() throws DataAccessException {
+	public List<CouponVO> selectAllCouponList() throws DataAccessException {
 		List<CouponVO> CouponList = sqlSession.selectList("mapper.coupon.selectAllCouponList");
 		return CouponList;		
 	}
@@ -29,7 +29,7 @@ public class CouponDAOImpl implements CouponDAO{
 
 	@Override
 	public int insertCoupon(CouponVO couponVO) throws DataAccessException {
-		int result = sqlSession.insert("mapper.coupon.selectSingleCoupon", couponVO);
+		int result = sqlSession.insert("mapper.coupon.insertCoupon", couponVO);
 		return result;
 	}
 

@@ -29,7 +29,7 @@
 		</div>
 		<div class="subMenu">
 			<a href="${contextPath}/coupon/removeCouponPage.do">
-				쿠폰제거
+				쿠폰삭제
 			</a>
 		</div>
 		<div class="subMenu">

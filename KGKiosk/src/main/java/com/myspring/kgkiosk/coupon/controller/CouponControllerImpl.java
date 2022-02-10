@@ -27,7 +27,7 @@ public class CouponControllerImpl implements CouponController{
 	public ModelAndView listAllCouponList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
-		List CouponLists = couponService.listAllCouponList();
+		List<CouponVO> CouponLists = couponService.listAllCouponList();
 		mav.addObject("CouponLists", CouponLists);
 		mav.setViewName(viewName);
 		return mav;

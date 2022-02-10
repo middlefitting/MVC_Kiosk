@@ -20,8 +20,6 @@
 </head>
 <body>
 
- 	<h2>쿠폰조회</h2><a href= "${contextPath}/coupon/listAllCouponList.do">조회</a>
-
 	<div class="all">
 	<div class="compList">
 		<ul class="header">
