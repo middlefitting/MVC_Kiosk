@@ -1,5 +1,6 @@
 package com.myspring.kgkiosk.cart.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.kgkiosk.cart.service.CartService;
 import com.myspring.kgkiosk.cart.vo.CartVO;
 import com.myspring.kgkiosk.food.service.FoodService;
-import com.myspring.kgkiosk.food.vo.FoodVO;
 import com.myspring.kgkiosk.member.vo.MemberVO;
 
 @Controller("cartController")
@@ -44,9 +44,22 @@ public class CartControllerImpl implements CartController{
 			session.removeAttribute("orderType");
 			return mav;
 		}
+
 		
 		cartVO.setId(memberVO.getId());
 		List CartLists = cartService.listCartList(cartVO);
+		
+		String orderPrice = "0";
+		String foodName = "";
+		int sum = 0;
+		for(int i=0; i<CartLists.size(); i++) {
+			sum = sum + (Integer.parseInt(((CartVO) CartLists.get(i)).getFoodPrice()) * Integer.parseInt(((CartVO) CartLists.get(i)).getFoodCount()));
+			foodName = foodName + "@" + ((CartVO) CartLists.get(i)).getFoodName();
+		}
+		orderPrice = Integer.toString(sum);
+		
+		mav.addObject("orderPrice", orderPrice);
+		mav.addObject("foodName", foodName);
 		mav.addObject("CartLists", CartLists);
 		mav.setViewName(viewName);
 		return mav;
@@ -61,7 +74,7 @@ public class CartControllerImpl implements CartController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-		
+
 		
 		//로그인 안되면 주문 불가
 		if(session.getAttribute("member") == null) {
@@ -131,7 +144,22 @@ public class CartControllerImpl implements CartController{
 		int result = 0;
 		result = cartService.removeSingleCart(cartVO);
 		mav.addObject("result", result);
-		mav.setViewName(viewName);
+		mav.setViewName("redirect:/cart/listCartList.do");
+		return mav;
+	}
+
+
+	@Override
+	@RequestMapping(value = "/cart/modifyCart.do", method = RequestMethod.POST)
+	public ModelAndView modifyCart(CartVO cartVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		HttpSession session = request.getSession();
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		int result = 0;
+		result = cartService.modifyCart(cartVO);
+		mav.addObject("result", result);
+		mav.setViewName("redirect:/cart/listCartList.do");
 		return mav;
 	}
 

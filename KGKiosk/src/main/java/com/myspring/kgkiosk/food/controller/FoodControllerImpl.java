@@ -60,19 +60,19 @@ public class FoodControllerImpl implements FoodController{
 		HttpSession session = request.getSession();
 		
 		if(viewName.contains("pizza")) {
-			foodVO.setFoodCategory("ÇÇÀÚ");
+			foodVO.setFoodCategory("í”¼ì");
 		}
 		else if(viewName.contains("side")) {
-			foodVO.setFoodCategory("»çÀÌµå");
+			foodVO.setFoodCategory("ì‚¬ì´ë“œ");
 		}
 		else if(viewName.contains("beverage")) {
-			foodVO.setFoodCategory("À½·á");
+			foodVO.setFoodCategory("ìŒë£Œ");
 		}
 		else {
-			foodVO.setFoodCategory("ÇÇÀÚ");
+			foodVO.setFoodCategory("í”¼ì");
 		}
 		
-		//ÁÖ¹® Å¸ÀÔ
+		//ï¿½Ö¹ï¿½ Å¸ï¿½ï¿½
 		if(viewName.contains("delivery")) {
 			session.setAttribute("orderType", "delivery");
 		}

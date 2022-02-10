@@ -48,6 +48,12 @@ public class MemberControllerImpl implements MemberController {
 			 mav.addObject("errorType","loginError");
 			 session.removeAttribute("errorType");
 		}
+		
+		if(session.getAttribute("errorType") == "orderSuccess"){
+			 mav.addObject("errorType","orderSuccess");
+			 session.removeAttribute("errorType");
+		}
+		
 		return mav;
 	}
 	

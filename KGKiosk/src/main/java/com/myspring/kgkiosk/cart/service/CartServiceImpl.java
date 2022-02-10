@@ -33,4 +33,9 @@ public class CartServiceImpl implements CartService{
 	public int removeSingleCart(CartVO cartVO) throws Exception {
 		return cartDAO.deleteSingleCart(cartVO);
 	}
+
+	@Override
+	public int modifyCart(CartVO cartVO) throws Exception {
+		return cartDAO.updateCart(cartVO);
+	}
 }

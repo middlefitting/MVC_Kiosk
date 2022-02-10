@@ -36,6 +36,15 @@
 	]]>      
   </delete>
   
+    <update id="updateCart"  parameterType="cartVO">
+     <![CDATA[
+	     update cart
+	     set foodCount=#{foodCount} 
+	     where
+	     cartId=#{cartId}
+      ]]>      
+   </update> 
+  
      <delete id="deleteSingleCart"  parameterType="cartVO">
 	<![CDATA[
 	   delete from cart
