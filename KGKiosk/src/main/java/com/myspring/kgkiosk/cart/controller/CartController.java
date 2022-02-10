@@ -13,5 +13,7 @@ public interface CartController {
 	public ModelAndView removeSingleCart(CartVO cartVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView addCart(CartVO cartVO, String size, String edge, String topping, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView modifyCart(CartVO cartVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+
 
 }

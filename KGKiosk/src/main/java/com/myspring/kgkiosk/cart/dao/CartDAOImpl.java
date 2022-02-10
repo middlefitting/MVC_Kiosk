@@ -26,13 +26,6 @@ public class CartDAOImpl implements CartDAO{
 
 	@Override
 	public int insertCart(CartVO cartVO) throws DataAccessException {
-//		System.out.println(cartVO.getCartId());
-//		System.out.println(cartVO.getId());
-//		System.out.println(cartVO.getFoodKey());
-//		System.out.println(cartVO.getFoodName());
-//		System.out.println(cartVO.getFoodImg());
-//		System.out.println(cartVO.getFoodPrice());
-//		System.out.println(cartVO.getFoodCount());
 		int result = 1;
 		sqlSession.selectOne("mapper.cart.insertCart", cartVO);
 		return result;
@@ -40,13 +33,22 @@ public class CartDAOImpl implements CartDAO{
 
 	@Override
 	public int deleteCart(CartVO cartVO) throws DataAccessException {
-		int result = sqlSession.selectOne("mapper.cart.deleteCart", cartVO);
+		int result = 1;
+		sqlSession.selectOne("mapper.cart.deleteCart", cartVO);
 		return result;
 	}
 
 	@Override
 	public int deleteSingleCart(CartVO cartVO) throws DataAccessException {
-		int result = sqlSession.selectOne("mapper.cart.deleteSingleCart", cartVO);
+		int result = 1;
+		sqlSession.selectOne("mapper.cart.deleteSingleCart", cartVO);
+		return result;
+	}
+
+	@Override
+	public int updateCart(CartVO cartVO) throws DataAccessException {
+		int result = 1;
+		sqlSession.selectOne("mapper.cart.updateCart", cartVO);
 		return result;
 	}
 	

@@ -26,6 +26,14 @@
 	    ${errorType=''}
 	  </script>
 	</c:when>
+		<c:when test="${errorType=='orderSuccess'}">
+	  <script>
+	    window.onload=function(){
+	      alert("주문이 완료되었습니다!");
+	    }
+	    ${errorType=''}
+	  </script>
+	</c:when>
   </c:choose>
 </head>
 
