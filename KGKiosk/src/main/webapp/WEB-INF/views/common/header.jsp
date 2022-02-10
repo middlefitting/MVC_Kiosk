@@ -63,7 +63,7 @@
 		</c:choose>     
 	</div>
     <div id="cart">
-     	<a href="#">
+     	<a href="${contextPath}/cart/listCartList.do">
 			<img src="${contextPath}/resources/image/cartIcon.png" height="40px">
 		</a>
      </div>

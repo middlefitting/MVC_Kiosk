@@ -32,8 +32,11 @@ public class CartControllerImpl implements CartController{
 	@RequestMapping(value = "/cart/listCartList.do", method = RequestMethod.GET)
 	public ModelAndView listCartList(CartVO cartVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		HttpSession session = request.getSession();
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		cartVO.setId(memberVO.getId());
 		List CartLists = cartService.listCartList(cartVO);
 		mav.addObject("CartLists", CartLists);
 		mav.setViewName(viewName);
