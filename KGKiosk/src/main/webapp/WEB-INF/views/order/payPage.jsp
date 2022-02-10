@@ -102,16 +102,14 @@
  	</td>
 	</tr>
     </c:forEach>
-    	${id = article.id}
      </c:when>
     </c:choose>
 </table>
 	    <form name="foodId" method="get"  action="${contextPath}/order/payPage.do">
-	   		<input type="hidden" name="id" id= "id" value="${CartLists[0].id}">
 			<input type="hidden" name="orderPrice" id= "orderPrice" value="${orderPrice}">			
 			<input type="hidden" name="orderType" id= orderType value="${orderType}">
 			<input type="hidden" name="foodName" id= foodName value="${foodName}">
-			<input type="submit" value="결제하기" class="submenuLink"> 
+			<input type="submit" value="정말 결제하기" class="submenuLink"> 
 		</form>
 
 </body>

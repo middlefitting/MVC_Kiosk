@@ -51,6 +51,7 @@ public class CartControllerImpl implements CartController{
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
 
 	@Override
 	@RequestMapping(value = "/cart/addCart.do", method = RequestMethod.GET)
@@ -60,6 +61,7 @@ public class CartControllerImpl implements CartController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		
 		
 		//로그인 안되면 주문 불가
 		if(session.getAttribute("member") == null) {

@@ -10,5 +10,6 @@
 		<typeAlias type="com.myspring.kgkiosk.coupon.vo.CouponVO"  alias="couponVO" />
 		<typeAlias type="com.myspring.kgkiosk.food.vo.FoodVO"  alias="foodVO" />
 		<typeAlias type="com.myspring.kgkiosk.cart.vo.CartVO"  alias="cartVO" />
+		<typeAlias type="com.myspring.kgkiosk.order.vo.OrderVO"  alias="orderVO" />
 	</typeAliases>
 </configuration>
