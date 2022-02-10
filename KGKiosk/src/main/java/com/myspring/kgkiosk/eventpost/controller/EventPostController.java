@@ -9,7 +9,9 @@ import com.myspring.kgkiosk.eventpost.vo.EventPostVO;
 
 public interface EventPostController {
 	public ModelAndView listAllEventPostList(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView memListAllEventPostList(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView viewSingleEventPost(String eventKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView memViewSingleEventPost(String eventKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView addEventPost(EventPostVO eventPostVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView modifyEventPost(EventPostVO eventPostVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView removeEventPost(String eventKey, HttpServletRequest request, HttpServletResponse response) throws Exception;	

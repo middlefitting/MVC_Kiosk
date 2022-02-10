@@ -30,6 +30,7 @@
 </head>
 
 <body>
+
 	<div class="eventBanner">
 		<input type="radio" name="slide" id="slide01" checked>
 		<input type="radio" name="slide" id="slide02">
@@ -38,23 +39,23 @@
 		<div class="slidewrap">
 			<ul class="slidelist">
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
 						<label for="slide03" class="left"></label>
-						<img src="${contextPath}/resources/image/slide01.jpg">
+						<img src="${contextPath}/resources/image/italian.jpg" width="500" height="500">
 						<label for="slide02" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
 						<label for="slide01" class="left"></label>
-						<img src="${contextPath}/resources/image/slide02.jpg">
+						<img src="${contextPath}/resources/image/birthday.jpg" width="500" height="500">
 						<label for="slide03" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
 						<label for="slide02" class="left"></label>
-						<img src="${contextPath}/resources/image/slide03.jpg">
+						<img src="${contextPath}/resources/image/oven.jpg" width="500" height="500">
 						<label for="slide01" class="right"></label>
 					</a>
 				</li>

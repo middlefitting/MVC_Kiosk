@@ -9,15 +9,15 @@
   <title>상세</title>
   <style>
     p {
-     font-size:20px;
-      text-align:center;
+     font-size:15px;
+      text-align:left;
     }
   </style>
 </head>
 <body>
-<p> 이메일</p> 
-<p> 회사주소</p>
-<p>전화번호</p>
+<p>상호명 : CLEAN PIZZA(주) </p> 
+<p>사업자등록번호 : 542-85-00739-908432-484</p>
+<p>Copyright ⓒ CLEAN PIZZA. All rights reserved.</p>
 
 </body>
 </html>

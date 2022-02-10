@@ -34,9 +34,9 @@
      			</ul>
      		</li>
      		<li class="topMenuLi"> <a class="menuLink" href="${contextPath}/coupon/memCheckListAllCoupon.do">쿠폰</a> </li>
-     		<li class="topMenuLi"> <a class="menuLink" href="">이벤트</a>
+     		<li class="topMenuLi"> <a class="menuLink" href="${contextPath}/eventpost/memListAllEventPostList.do">이벤트</a>
      			<ul class="submenu"> 
-     				<li><a href="" class="submenuLink">이벤트</a></li> 
+     				<li><a href="${contextPath}/eventpost/memListAllEventPostList.do" class="submenuLink">이벤트</a></li>
      				<li><a href="" class="submenuLink">단체주문</a></li> 
      			</ul> 
      		</li> 

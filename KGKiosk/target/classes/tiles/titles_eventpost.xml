@@ -22,5 +22,17 @@
 	      <put-attribute name="body" value="/WEB-INF/views/event/adminViewSingleEventPost.jsp" />
 	</definition>
 	
+	<definition name="/eventpost/memViewSingleEventPost" extends="baseLayout">
+	      <put-attribute name="title" value="고객 이벤트 뷰" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/event/memViewSingleEventPost.jsp" />
+	</definition>
+	
+	<definition name="/eventpost/memListAllEventPostList" extends="baseLayout">
+	      <put-attribute name="title" value="이벤트" />
+      	  <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+	      <put-attribute name="body" value="/WEB-INF/views/event/memListAllEventPost.jsp" />
+	</definition>
+	
 	<!-- =====client===== -->	
 </tiles-definitions>

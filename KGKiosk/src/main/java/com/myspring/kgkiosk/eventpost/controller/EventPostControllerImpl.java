@@ -52,10 +52,34 @@ public class EventPostControllerImpl implements EventPostController{
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@Override
+	@RequestMapping(value = "/eventpost/memListAllEventPostList.do", method = RequestMethod.GET)
+	public ModelAndView memListAllEventPostList(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		List<EventPostVO> EventPostLists = eventPostService.listAllEventPostList();
+		mav.addObject("EventPostLists", EventPostLists);
+		mav.setViewName(viewName);
+		return mav;
+	}
 
 	@Override
 	@RequestMapping(value = "/eventpost/adminViewSingleEventPost.do", method = RequestMethod.GET)
 	public ModelAndView viewSingleEventPost(String eventKey, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		eventPostVO = eventPostService.viewSingleEventPost(eventKey);
+		mav.addObject("eventPostVO", eventPostVO);
+		mav.setViewName(viewName);
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/eventpost/memViewSingleEventPost.do", method = RequestMethod.GET)
+	public ModelAndView memViewSingleEventPost(String eventKey, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
