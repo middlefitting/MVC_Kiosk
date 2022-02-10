@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/myspring/kgkiosk/cart/controller/CartControllerImpl.java=UTF-8
+encoding//src/main/java/com/myspring/kgkiosk/order/controller/OrderControllerImpl.java=UTF-8
 encoding/OracleDB.txt=UTF-8

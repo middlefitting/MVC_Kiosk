@@ -12,53 +12,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-#menu .wrap_menuList > ul > li {
-  display: inline-block;
-  width: 310px;
-  min-height: 480px;
-  margin-right: 35px;
-  margin-bottom: 60px;
-  border-radius: 16px;
-  background: #fff;
-  padding-top: 15px;
-  vertical-align: top;
-}
 
-#menu .wrap_menuList > ul > li:nth-child(4n) {
-  margin-right: 0;
-}
-
-#menu .wrap_menuList > ul > li:hover {
-  -webkit-box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
-}
-
-#menu .wrap_menuList > ul > li .thumb {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  position: relative;
-}
-
-#menu .wrap_menuList > ul > li .thumb .pizza {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 2;
-}
-
-#menu .wrap_menuList > ul > li .thumb .pizza .img {
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: 250px auto;
-  background-position: center;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/singleMenuPageStyle.css">
 </head>
 <body>
 <h2>메뉴</h2>
@@ -74,8 +29,98 @@
 <br>
 <hr>
 <br>
+<!-- 메뉴 설명 및 선택 -->
+<form name="foodId" method="get" action="${contextPath}/cart/addCart.do">
+<div class="wrap"> <!-- 가로 -->
+	<div class="ele2"> <!-- 세로 -->
+    	<!-- sticky 설명 및 사진 -->
+    	<div class="foodName">${foodVO.foodName}</div>
+    	<div class="foodInfo">${foodVO.foodInfo}</div>
+    	<div class="foodImg">
+    		<div class="prodImg"><div class="img" style="background-image: url('${contextPath}/resources/image/pizzaTest.png');"></div></div>
+    	<%-- <div class="foodImg" style="background-image: url('${foodVO.foodInfo}');"></div> --%>
+    	</div>
+  	</div>
+ 	<div class="ele1"> <!-- 세로 -->
+ 	<c:if test="${foodVO.foodCategory eq '피자'}">
+    	<!-- relative 옵션 선택 -->
+    	<div class="option size"> <!-- 가로 -->
+    		<h3>사이즈 선택</h3>
+    		<div class="radioBox">
+				<label class="radio">
+					<input type="radio" name="size" value="기본" checked="checked"><span>기본</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="size" value="라지"><span>라지 (+5000원)</span>
+				</label>
+			</div>
+    	</div>
+    	<br><br>
+    	<div class="option edge">
+    		<h3>엣지 선택</h3>
+    		<div class="radioBox">
+				<label class="radio">
+					<input type="radio" name="edge" value="기본" checked="checked"><span>기본</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="edge" value="치즈크러스트"><span>치즈크러스트 (+2000원)</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="edge" value="리치골드"><span>리치골드 (+1000원)</span>
+				</label>
+			</div>
+    	</div>
+    	<br><br>
+    	<div class="option topping">
+    		<h3>토핑 선택</h3>
+    		<div class="radioBox">
+				<label class="radio">
+					<input type="radio" name="topping" value="치즈"><span>치즈 (+1000원)</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="topping" value="소시지"><span>소시지 (+2000원)</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="topping" value="통새우"><span>통새우 (+3000원)</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="topping" value="베이컨"><span>베이컨 (+1500원)</span>
+				</label>
+			</div>
+    	</div>
+    </c:if>
+    	<br><br>
+    	<div class="inputBox">
+    		<h3>수량 입력</h3>
+    		<input type="text" name="foodCount" id="foodCount" value="1" size="20" placeholder="수량">
+			<label for="foodCount">개</label>
+    	</div>
+    	<!-- 장바구니 넣기 버튼 -->
+    	<input type="hidden" name="foodKey" id= "foodKey" value="${foodVO.foodKey}">
+		<input type="hidden" name="foodName" id= "foodName" value="${foodVO.foodName}">
+		<input type="hidden" name="foodImg" id= "foodImg" value="${foodVO.foodImg}">
+		<input type="hidden" name="foodPrice" id= "foodPrice" value="${foodVO.foodPrice}">
+    	<div class="btn">
+			<input type="submit" value="장바구니 추가"> 
+		</div>
+  	</div>
+</div>
+</form>
+	
 
-<table align="center" border="1"  width="80%"  >
+<%-- <form name="foodId" method="GET"  action="${contextPath}/cart/addCart.do">   
+	<input type="hidden" name="foodKey" id= "foodKey" value="${foodVO.foodKey}">
+	
+	<input type="hidden" name="foodName" id= "foodName" value="${foodVO.foodName}">
+	<input type="hidden" name="foodImg" id= "foodImg" value="${foodVO.foodImg}">
+	<input type="hidden" name="foodPrice" id= "foodPrice" value="${foodVO.foodPrice}">
+	<input type="hidden" name="foodCount" id= "foodCount" value="${foodVO.foodCount}">
+	
+	
+</form>	 --%>	
+
+
+<%-- <table align="center" border="1"  width="80%"  >
   <tr height="10" align="center"  bgcolor="lightgreen">
      <td >메뉴명</td>
      <td >이미지</td>             
@@ -121,7 +166,7 @@
 	</tr>
      </c:when>
     </c:choose>
-</table>
+</table> --%>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.cart.service.CartService;
@@ -37,7 +38,7 @@ public class CartControllerImpl implements CartController{
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-		//로그인 안되면 주문 불가
+		//濡쒓렇�씤 �븞�릺硫� 二쇰Ц 遺덇�
 		if(session.getAttribute("member") == null) {
 			session.setAttribute("errorType", "loginError");
 			mav.setViewName("redirect:/main.do");
@@ -68,14 +69,15 @@ public class CartControllerImpl implements CartController{
 
 	@Override
 	@RequestMapping(value = "/cart/addCart.do", method = RequestMethod.GET)
-	public ModelAndView addCart(CartVO cartVO, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView addCart(CartVO cartVO, @RequestParam(value="size", required = false) String size, @RequestParam(value="edge", required = false) String edge, 
+			@RequestParam(value="topping", required = false) String topping, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		HttpSession session = request.getSession();
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 
-		
+
 		//로그인 안되면 주문 불가
 		if(session.getAttribute("member") == null) {
 			session.setAttribute("errorType", "loginError");
@@ -83,15 +85,37 @@ public class CartControllerImpl implements CartController{
 			session.removeAttribute("orderType");
 			return mav;
 		}
-			
-			
-			
-			
 		
 		cartVO.setId(memberVO.getId());
 		cartVO.setCartId(memberVO.getId()+cartVO.getFoodKey());
-//		String key = cartVO.getFoodKey();
 		
+		int addedPrice = 0;
+		if (size.equals("라지")) addedPrice += 5000;
+		
+		if (edge.equals("치즈크러스트")) { addedPrice += 2000; }
+		else if (edge.equals("리치골드")) { addedPrice += 1000; }
+		
+		if (topping != null) {
+			if (topping.equals("치즈")) { addedPrice += 1000; }
+			else if (topping.equals("소시지")) { addedPrice += 2000; }
+			else if (topping.equals("통새우")) { addedPrice += 3000; }
+			else if (topping.equals("베이컨")) { addedPrice += 1500; }
+		} else {
+			topping = "";
+		}
+		
+		cartVO.setFoodName(cartVO.getFoodName()+" - "+size + edge + topping);
+		cartVO.setAddedPrice(String.valueOf(addedPrice));
+		
+//		String key = cartVO.getFoodKey();
+		System.out.println("카트VO");
+		System.out.println(cartVO.getCartId());
+		System.out.println(cartVO.getAddedPrice());
+		System.out.println(cartVO.getFoodCount());
+		System.out.println(cartVO.getFoodImg());
+		System.out.println(cartVO.getFoodKey());
+		System.out.println(cartVO.getFoodName());
+		System.out.println(cartVO.getFoodPrice());
 		int result = 0;
 		try {
 			result = cartService.addCart(cartVO);

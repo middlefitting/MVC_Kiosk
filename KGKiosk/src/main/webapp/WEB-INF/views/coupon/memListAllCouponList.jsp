@@ -20,15 +20,15 @@
 </head>
 <body>
 	
-	<h2 style="font-family:바탕체;">사용가능한 쿠폰</h2>
+	<h2>사용가능한 쿠폰</h2>
 	
 	<div class="all">
 	<div class="compList">
 		<ul class="header">
 			<li class="subRow couponKey header">쿠폰키<li>
 			<li class="subRow couponName header">쿠폰명<li>
-			<li class="subRow couponPercent header">쿠폰할인율<li>
-			<li class="subRow couponAmount header">쿠폰감가<li>
+			<!-- <li class="subRow couponPercent header">쿠폰할인율<li>
+			<li class="subRow couponAmount header">쿠폰감가<li> -->
 			<li class="subRow couponLeast header">최소주문금액<li>
 		</ul>
 		<hr id="headerHr">
@@ -36,8 +36,8 @@
 			<ul class="row">
 				<li class="subRow couponKey">${CouponLists.couponKey}</li>
 				<li class="subRow couponName">${CouponLists.couponName}</li>
-				<li class="subRow couponPercent">${CouponLists.couponPercent}</li>
-				<li class="subRow couponAmount">${CouponLists.couponAmount}</li>
+				<%-- <li class="subRow couponPercent">${CouponLists.couponPercent}</li>
+				<li class="subRow couponAmount">${CouponLists.couponAmount}</li> --%>
 				<li class="subRow couponLeast">${CouponLists.couponLeast}</li>
 			</ul>
 		</c:forEach>

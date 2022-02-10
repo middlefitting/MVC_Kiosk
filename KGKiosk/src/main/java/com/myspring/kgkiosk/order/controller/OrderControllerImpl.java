@@ -16,10 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.cart.service.CartService;
 import com.myspring.kgkiosk.cart.vo.CartVO;
-<<<<<<< HEAD
-=======
 import com.myspring.kgkiosk.member.service.MemberService;
->>>>>>> middleTopic
 import com.myspring.kgkiosk.member.vo.MemberVO;
 import com.myspring.kgkiosk.order.service.OrderService;
 import com.myspring.kgkiosk.order.vo.OrderVO;
@@ -107,7 +104,7 @@ public class OrderControllerImpl implements OrderController{
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
 		
-		//트랜잭션처리 해야함		
+		//�듃�옖�옲�뀡泥섎━ �빐�빞�븿		
 		result = orderService.addOrder(orderVO);
 		mav.addObject("result", result);
 		cartVO.setId(orderVO.getId());
