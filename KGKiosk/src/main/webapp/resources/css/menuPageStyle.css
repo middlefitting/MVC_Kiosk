@@ -1,0 +1,117 @@
+@charset "UTF-8";
+body {
+  padding: 0 40px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.menuList > ul {
+  display:inline-block;
+  float:left;
+  height: 775px;
+}
+
+ul.clear {
+    overflow-y: auto;
+}
+.menuList > ul > li {
+  display: inline-block;
+   float:left;
+  width: 310px;
+  min-height: 380px;
+  margin-right: 35px;
+  margin-bottom: 60px;
+  border-radius: 16px;
+  background: #fff;
+  padding-top: 15px;
+  vertical-align: top;
+  
+}
+
+.menuList > ul > li:nth-child(4n) {
+  margin-right: 0;
+}
+
+.menuList > ul > li:hover {
+  -webkit-box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+.menuList > ul > li .thumbImg {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.menuList > ul > li .thumbImg .prodImg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+}
+
+.menuList > ul > li .thumbImg .prodImg .img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 250px auto;
+  background-position: center;
+}
+
+.menuList > ul > li .price {
+  padding: 0px 0px 0 0px;
+}
+
+.menuList > ul > li .price .inner {
+  position: relative;
+}
+
+.menuList > ul > li .price .inner a {
+  text-decoration:none;
+  color:#2d2d2d
+}
+.menuList > ul > li:hover .price .inner a:hover {
+  text-decoration:none;
+  color:#c00727
+}
+.menuList > ul > li .price .inner .prodName {
+  height: 44px;
+  font-family: 'Noto Sans KR';
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.4;
+  word-break: break-all;
+  padding: 30px 0px 0px 0px;
+}
+
+.menuList > ul > li .price .inner .prodPrice {
+  margin-bottom: 25px;
+}
+
+.menuList > ul > li .price .inner .prodPrice .item .size {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-family: 'Noto Sans KR';
+  font-weight: 800;
+  font-size: 16px;
+  color: #DE4B50;
+  text-align: center;
+  line-height: 30px;
+  background: #f8e8e8;
+  border-radius: 10px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.menuList > ul > li .price .inner .prodPrice .price {
+  display: inline-block;
+  width: 100px;
+  font-family: 'Noto Sans KR';
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+}

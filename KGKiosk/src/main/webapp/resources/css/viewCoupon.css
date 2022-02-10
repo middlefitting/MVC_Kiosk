@@ -5,7 +5,7 @@
 }
 
 .compList {
-    width:1000px;
+    width:80%;
     height:600px;
     overflow:auto;
     
@@ -14,7 +14,7 @@
     display:flex;
     font-weight:bold;
     list-style-type: none;
-    justify-content:space-around;
+    justify-content: center;
     align-items:center;
 }
 
@@ -28,7 +28,7 @@
 .compList .row {
     display:flex;
     list-style-type: none;
-    justify-content:space-around;
+    justify-content: center;
 }
 
 .subRow.title a {
