@@ -34,6 +34,7 @@
 </table>
 <hr> -->
 <!-- 리스트 -->
+<div class="all">
 <div class="compList">
 	<ul class="header">
 		<li class="subRow id header ">아이디</li>
@@ -59,7 +60,7 @@
 		</ul>
 	</c:forEach>
 </div>
-
+</div>
 
 </body>
 </html>

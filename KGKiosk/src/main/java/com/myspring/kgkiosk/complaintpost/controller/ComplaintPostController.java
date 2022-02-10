@@ -18,6 +18,6 @@ public interface ComplaintPostController {
 	public ModelAndView modifyComplaintPost(ComplaintPostVO complaintPostVO, String complaintAnswerBody,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView modifyComplaintPostClient(ComplaintPostVO complaintPostVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView removeComplaintPost(String complaintPostKey, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView adminComplaintPost(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	/*public ModelAndView adminComplaintPost(HttpServletRequest request, HttpServletResponse response) throws Exception;*/
 }
 

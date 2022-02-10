@@ -1,6 +1,11 @@
 @charset "UTF-8";
+.all {
+    display:flex;
+    justify-content:center;
+}
+
 .compList {
-    width:inherit;
+    width:1000px;
     height:600px;
     overflow:auto;
     
@@ -10,10 +15,11 @@
     font-weight:bold;
     list-style-type: none;
     justify-content:space-around;
+    align-items:center;
 }
 
-.compList .subRow.id {width:20%; font-weight:bold;}
-.compList .subRow.title {width:60%;}
+.compList .subRow.id {width:20%;}
+.compList .subRow.title {width:60%; font-weight:bold;}
 .compList .subRow.date {width:20%}
 .compList .subRow.answer {width:20%;}
 .compList .subRow.answer.no {color:red;}
@@ -21,6 +27,7 @@
 .compList .row {
     display:flex;
     list-style-type: none;
+    justify-content:space-around;
 }
 
 .subRow.title a {

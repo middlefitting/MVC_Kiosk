@@ -20,7 +20,7 @@
    <h2>관리자 메인 페이지</h2>
    <div class="pageMenu">
 		<div class="subMenu">
-			<a href="${contextPath}/admin/complaint.do">
+			<a href="${contextPath}/complaintpost/listAllComplaintPostList.do">
 				문의내역
 			</a>
 		</div>

@@ -46,10 +46,10 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	public ModelAndView listAllComplaintPostList(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView("/admin/complaint");
+		ModelAndView mav = new ModelAndView();
 		List<ComplaintPostVO> ComplaintPostLists = complaintPostService.listAllComplaintPostList();
 		mav.addObject("ComplaintPostLists", ComplaintPostLists);
-		
+		mav.setViewName(viewName);
 		return mav;
 	}
  
@@ -128,14 +128,6 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 		result = complaintPostService.removeComplaintPost(complaintPostKey);
 		mav.addObject("result", result);
 		return mav;
-	}
-	
-	@RequestMapping(value = "/admin/complaint.do", method = RequestMethod.GET)
-	public ModelAndView adminComplaintPost(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView("redirect:/complaintpost/listAllComplaintPostList.do");
-		return mav; 
 	}
 	
 }
