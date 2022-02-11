@@ -26,6 +26,14 @@
 	    ${errorType=''}
 	  </script>
 	</c:when>
+		<c:when test="${errorType=='orderSuccess'}">
+	  <script>
+	    window.onload=function(){
+	      alert("주문이 완료되었습니다!");
+	    }
+	    ${errorType=''}
+	  </script>
+	</c:when>
   </c:choose>
 </head>
 
@@ -39,23 +47,23 @@
 		<div class="slidewrap">
 			<ul class="slidelist">
 				<li>
-					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_07_23">
 						<label for="slide03" class="left"></label>
-						<img src="${contextPath}/resources/image/italian.jpg" width="500" height="500">
+						<img src="${contextPath}/resources/image/eventImg1.PNG">
 						<label for="slide02" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_35_23">
 						<label for="slide01" class="left"></label>
-						<img src="${contextPath}/resources/image/birthday.jpg" width="500" height="500">
+						<img src="${contextPath}/resources/image/eventImg2.PNG">
 						<label for="slide03" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="${contextPath}/eventpost/memListAllEventPostList.do">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_36_17">
 						<label for="slide02" class="left"></label>
-						<img src="${contextPath}/resources/image/oven.jpg" width="500" height="500">
+						<img src="${contextPath}/resources/image/eventImg3.PNG" width="800px">
 						<label for="slide01" class="right"></label>
 					</a>
 				</li>

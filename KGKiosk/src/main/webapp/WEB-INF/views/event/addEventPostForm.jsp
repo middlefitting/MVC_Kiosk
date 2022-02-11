@@ -17,18 +17,18 @@
 <script>
 
 function readURL(input) {
-	
-	if (input.files && input.files[0]){
-				
-		var reader = new FileReader();
-		
-		reader.onload = function(e) {
-			document.getElementById("preview").src = e.target.result;
-		};
-		reader.readAsDataURL(input.files[0]);
-	} else {
-		document.getElementById("preview").src = "";
-	}
+   
+   if (input.files && input.files[0]){
+            
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+         document.getElementById("preview").src = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+   } else {
+      document.getElementById("preview").src = "";
+   }
 }
 
 </script>
@@ -46,22 +46,25 @@ function readURL(input) {
 			<textarea rows="3" cols="50" name="eventBody" id="eventBody"placeholder="이벤트 내용"></textarea>
 			<label for="eventBody">이벤트 내용</label>
 		</div>
+
 		<!-- <div class="inputBox">
 			<input type="text" name="eventImgSrc" id="eventImgSrc" value="" size="20"placeholder="이미지">
 			<label for="eventImgSrc">이미지</label>
 		</div> -->
-		
-			<input type="file" name="eventImgSrc" id="eventImgSrc" value="" size="20"placeholder="이미지" onchange="readURL(this);">
-		
-		<tr>
-			<img id = "preview" width = "200"/>
-		</tr>
-		
+	
+		<div class="inputBox">
+			<input type="file" name="eventImgSrc"  id="eventImgSrc" onchange="readURL(this);" />
+			<label for="eventBody">이미지 추가</label>
+			<div>
+				<img id="preview" width="200">
+			</div>
+		</div>
+
 		<div class="button">
 			<input type="submit" value="등록" > 
-		</div>
-		
+		</div>	
 	</form>
+
 </div>
 </body>
 </html>

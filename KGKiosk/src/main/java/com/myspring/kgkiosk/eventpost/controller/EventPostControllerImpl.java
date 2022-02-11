@@ -1,5 +1,6 @@
 package com.myspring.kgkiosk.eventpost.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +19,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
 import com.myspring.kgkiosk.eventpost.service.EventPostService;
 import com.myspring.kgkiosk.eventpost.vo.EventPostVO;
 
 @Controller("eventPostController")
 public class EventPostControllerImpl implements EventPostController{
-
+	private static final String ARTICLE_IMAGE_REPO = "C:\\kgImage\\image";
 	@Autowired
 	private EventPostService eventPostService;
 	@Autowired
@@ -116,11 +117,20 @@ public class EventPostControllerImpl implements EventPostController{
 		SimpleDateFormat format = new SimpleDateFormat("yy_MM_dd_HH_mm_ss");
 		Date time = new Date();
 		String postKey = "e_" + format.format(time);
+		
+		String imageFileName= eventPostVO.getEventImgSrc();
+			if(imageFileName!=null && imageFileName.length()!=0) {
+				File srcFile = new 
+				File(ARTICLE_IMAGE_REPO+ "\\" + "toUpload"+ "\\" + imageFileName);
+				File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+"event");
+				FileUtils.moveFileToDirectory(srcFile, destDir,true);
+			}
+		
 		eventPostVO.setEventKey(postKey);
 	
 
 		ModelAndView mav = new ModelAndView("redirect:/eventpost/listAllEventPostList.do");
-		int result = 0;
+		int result = 0;	
 		result = eventPostService.addEventPost(eventPostVO);
 		mav.addObject("result", result);
 		return mav;
@@ -152,3 +162,4 @@ public class EventPostControllerImpl implements EventPostController{
 	}
 
 }
+

@@ -11,106 +11,97 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-#menu .wrap_menuList > ul > li {
-  display: inline-block;
-  width: 310px;
-  min-height: 480px;
-  margin-right: 35px;
-  margin-bottom: 60px;
-  border-radius: 16px;
-  background: #fff;
-  padding-top: 15px;
-  vertical-align: top;
-}
-
-#menu .wrap_menuList > ul > li:nth-child(4n) {
-  margin-right: 0;
-}
-
-#menu .wrap_menuList > ul > li:hover {
-  -webkit-box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.1);
-}
-
-#menu .wrap_menuList > ul > li .thumb {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  position: relative;
-}
-
-#menu .wrap_menuList > ul > li .thumb .pizza {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 2;
-}
-
-#menu .wrap_menuList > ul > li .thumb .pizza .img {
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: 250px auto;
-  background-position: center;
-}
-
-</style>
+<title>결제 페이지</title>
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/foodFormStyle.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/orderPageStyle.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
-<body>
-<table align="center" border="1"  width="80%"  >
-  <tr height="10" align="center"  bgcolor="lightgreen">
-     <td> 번호</td>
-     <td >메뉴명</td>
-     <td >이미지</td>             
-     <td >가격</td>
-     <td >수량</td>
-     <td >삭제</td>
-  </tr>
-<c:choose>
-  <c:when test="${CartLists ==null }" >
-    <tr  height="10">
-      <td colspan="4">
-         <p align="center">
-            <b><span style="font-size:9pt;">담긴 상품이 없습니다.</span></b>
-        </p>
-      </td>  
-    </tr>
- 
-  </c:when>
-  <c:when test="${CartLists !=null }" >
-    <c:forEach  var="article" items="${CartLists}" varStatus="articleNum" >
-     <tr align="center">
-	<td width="5%">${articleNum.count}</td>
-	
-	<td width="15%">${article.foodName}</td>
-	
-	<td  width="10%">${article.foodImg}</td>
-	
-	<td  width="10%">${article.foodPrice}</td>
-	
-	<td  width="10%">${article.foodCount}</td>
-	
-	<td width="10%">
-	    <form name="foodId" method="get"  action="${contextPath}/order/delteCart.do">
-			<input type="hidden" name="cartId" id= "cartId" value="${article.cartId}">			
-			<input type="submit" value="삭제" class="submenuLink"> 
-		</form>
- 	</td>
-	</tr>
-    </c:forEach>
-     </c:when>
-    </c:choose>
-</table>
-	    <form name="foodId" method="get"  action="${contextPath}/order/payPage.do">
-			<input type="hidden" name="orderPrice" id= "orderPrice" value="${orderPrice}">			
-			<input type="hidden" name="orderType" id= orderType value="${orderType}">
-			<input type="hidden" name="foodName" id= foodName value="${foodName}">
-			<input type="submit" value="정말 결제하기" class="submenuLink"> 
-		</form>
 
+<body>
+
+	<div class="all">
+	<div class="orderList">
+	<u1><h2>주문정보</h2></u1>
+		<ul class="header">
+			<li class="subRow orderName header">제품명<li>
+			<li class="subRow orderPrice header">가격<li>
+			<li class="subRow orderCount header">개수<li>
+		</ul>
+		<hr id="headerHr">
+		<c:forEach var="CartLists" items="${CartLists}">
+			<div class="scrollPoint">
+			<ul class="row">
+				<li class="subRow orderName">${CartLists.foodName}</li>
+				<li class="subRow orderPrice">${orderVO.orderPrice}</li>
+				<li class="subRow orderCount">${CartLists.foodCount}</li>
+			</ul>
+			</div>
+		</c:forEach>
+	</div>
+	</div>
+	
+	<div class="orderInfo">
+		<div class="address">
+			<div class="label">배달 받을 주소</div>
+			<div class="content">${member.homeAddress}</div>
+		</div>
+		<div class="totalPrice">
+			<div class="label">총 주문금액</div>
+			<div class="content">${orderVO.orderPrice}</div>
+		</div>
+		<div class="all">
+		    <form name="foodId" method="post"  action="${contextPath}/order/addOrder.do">
+			<br>
+			<div class="goLeft">
+			<div class="label">수령 방법</div>
+			<div class="radioBox">
+				<label class="radio">
+					<input type="radio" name="orderType" value="배달" checked="checked"><span>배달</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="orderType" value="포장" checked=false><span>포장</span>
+				</label>
+			</div>
+			<br>
+			<div class="label">결제 방법</div>
+			<div class="radioBox">
+				<label class="radio">
+					<input type="radio" name="orderBY" value="카드" checked="checked"><span>카드</span>
+				</label>
+				<label class="radio">
+					<input type="radio" name="orderBY" value="현금" checked=false><span>현금</span>
+				</label>
+			</div>
+			</div>
+			<br>
+			<div class="goRight">
+				<input type="hidden" name="id" id= "id" value="${member.id}">
+				<input type="hidden" name="orderPrice" id= "orderPrice" value="${orderVO.orderPrice}">			
+				<input type="hidden" name="foodName" id= foodName value="${orderVO.foodName}">
+				<input type="hidden" name="orderSale" id= orderSale value="0">
+				<input type="submit" value="결제" class="submenuLink"> 
+			</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
+
+<%-- 
+<div class="header"><h2>1. 주문정보</h2></div>
+<hr id="headerHr">
+<div class="formDiv">
+	<form name="frmAddMember" method="post"  action="${contextPath}/member/modifyMember.do">
+		<div class="inputBox">
+			<label for="name">주문자이름</label>
+			<input type="text" name="name" id="name" value="${member.name}" size="20"placeholder="이름">
+		</div>
+		<div class="inputBox">
+			<label for="homeAddress">주문자 주소</label>
+			<input type="text" name="homeAddress" id="homeAddress" value="${member.homeAddress}" size="20"placeholder="주소">	
+		</div>
+		<div class="button">
+			<input type="submit" value="수정하기" > 
+		</div>		
+	</form>
+</div> --%>

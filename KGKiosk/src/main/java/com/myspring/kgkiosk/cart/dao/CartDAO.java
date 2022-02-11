@@ -11,5 +11,6 @@ public interface CartDAO {
 	public List selectCartList(CartVO cartVO) throws DataAccessException;
 	public int insertCart(CartVO cartVO) throws DataAccessException;
 	public int deleteCart(CartVO cartVO) throws DataAccessException;
+	public int updateCart(CartVO cartVO) throws DataAccessException;
 	public int deleteSingleCart(CartVO cartVO) throws DataAccessException;
 }

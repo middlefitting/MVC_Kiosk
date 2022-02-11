@@ -1,9 +1,12 @@
 package com.myspring.kgkiosk.order.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.cart.service.CartService;
 import com.myspring.kgkiosk.cart.vo.CartVO;
+import com.myspring.kgkiosk.member.service.MemberService;
+import com.myspring.kgkiosk.member.vo.MemberVO;
 import com.myspring.kgkiosk.order.service.OrderService;
 import com.myspring.kgkiosk.order.vo.OrderVO;
 
@@ -24,9 +29,14 @@ public class OrderControllerImpl implements OrderController{
 	@Autowired
 	private CartService cartService;
 	@Autowired
+	private MemberService memberService;
+	@Autowired
 	private OrderVO orderVO ;
 	@Autowired
 	private CartVO cartVO ;
+	@Autowired
+	private MemberVO memberVO ;
+
 	
 	@Override
 	@RequestMapping(value = "/order/payPage.do", method = RequestMethod.GET)
@@ -34,10 +44,14 @@ public class OrderControllerImpl implements OrderController{
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		cartVO.setId(orderVO.getId());
+		memberVO.setId(orderVO.getId());
 		List CartLists = cartService.listCartList(cartVO);
+//		memberVO = memberService.viewSingleMember(memberVO.getId());
 		
 		mav.addObject("CartLists", CartLists);
+		mav.addObject("CartLists", CartLists);
 		mav.addObject("orderVO", orderVO);
+//		mav.addObject("memberVO", memberVO);
 		mav.setViewName(viewName);
 		return mav;
 	}
@@ -81,12 +95,25 @@ public class OrderControllerImpl implements OrderController{
 	@RequestMapping(value = "/order/addOrder.do", method = RequestMethod.POST)
 	public ModelAndView addOrder(OrderVO orderVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		HttpSession session = request.getSession();
+		SimpleDateFormat format = new SimpleDateFormat("yy_MM_dd_HH_mm_ss");
+		Date time = new Date();
+		String orderKey = format.format(time)+ orderVO.getId();
+		orderVO.setOrderKey(orderKey);
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		int result = 0;
+		
+		//�듃�옖�옲�뀡泥섎━ �빐�빞�븿		
 		result = orderService.addOrder(orderVO);
 		mav.addObject("result", result);
-		mav.setViewName(viewName);
+		cartVO.setId(orderVO.getId());
+		cartService.removeCart(cartVO);
+		
+		
+		session.setAttribute("errorType", "orderSuccess");
+		
+		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
 	

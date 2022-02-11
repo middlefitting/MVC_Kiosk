@@ -1,0 +1,84 @@
+@charset "UTF-8";
+.all {
+    display:flex;
+    justify-content:space-around;
+}
+
+.cartList {
+    width: 1000px;
+    height:600px;
+    overflow:auto;
+}
+.cartList .header {
+    display:flex;
+    font-weight:bold;
+    list-style-type: none;
+    align-items:center;
+    padding-left: 0px;
+    align-content: center;
+    justify-content: center;
+}
+
+.cartList .subRow.cartName {width:35%;font-weight: bold;}
+.cartList .subRow.cartImg {width:15%}
+.cartList .subRow.cartPrice {width:10%}
+.cartList .subRow.cartAdded {width:8%}
+.cartList .subRow.cartCount {width:10%;}
+.cartList .subRow.cartCount {width:10%;}
+
+.cartList .row {
+    display:flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0px;
+    align-content: center;
+}
+
+.subRow.title a {
+    text-decoration:none;
+    color:black;
+}
+.subRow.title a:hover {
+    color:#c00727
+}
+  
+.inputBox input{
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #c00727;
+    padding:20px 0px 5px 0px;
+    font-size:14pt;
+    color:#c00727;
+    text-align:center;
+    width:30%;
+    font-family:-webkit-body
+}
+.inputBox input:focus {
+    outline:none;
+}
+.button input {
+    background:#c0072747;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+.submenuLink {
+    width:50px;
+    height:35px;
+    border-radius:5px;
+}
+.submenuLink.end {
+    width:300px;
+    height:50px;
+    border-radius:5px;
+}
+#headerHr {
+    margin:30px 20px 0px 20px;
+    border: solid 1px #c007274a;
+}
+
+.scrollPoint {
+    overflow: auto;
+    height: 500px;
+}

@@ -97,10 +97,10 @@ public class ComplaintPostControllerImpl  implements ComplaintPostController{
 	@RequestMapping(value = "/complaintpost/modifyComplaintPost.do", method = RequestMethod.POST)
 	public ModelAndView modifyComplaintPost(@ModelAttribute("complaintPostVO") ComplaintPostVO complaintPostVO, @RequestParam("complaintAnswerBody") String complaintAnswerBody
 			, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView("redirect:/admin/complaint.do");
+		ModelAndView mav = new ModelAndView("redirect:/complaintpost/listAllComplaintPostList.do");
 		int result = 0;
 		complaintPostVO.setComplaintAnswer("1");
-		String compbody = complaintPostVO.getComplaintPostBody() + "\r\n\r\n========== �亯 ==========\r\n\r\n" + complaintAnswerBody;
+		String compbody = complaintPostVO.getComplaintPostBody() + "\r\n\r\n========== 답변 ==========\r\n\r\n" + complaintAnswerBody;
 		complaintPostVO.setComplaintPostBody(compbody);
 
 		result = complaintPostService.modifyComplaintPost(complaintPostVO);

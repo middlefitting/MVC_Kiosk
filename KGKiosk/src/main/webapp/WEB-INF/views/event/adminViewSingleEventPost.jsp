@@ -53,12 +53,11 @@ String eventImgSrc = request.getParameter("eventImgSrc"); //이미지 주소 받
 			<textarea rows="3" cols="50" name="eventBody" id="eventBody"placeholder="이벤트 내용">${eventPostVO.eventBody }</textarea>
 			<label for="eventBody">이벤트 내용</label>
 		</div>
-		<%-- <div class="inputBox">
-			<input type="text" name="eventImgSrc" id="eventImgSrc" value="${eventPostVO.eventImgSrc }" size="20"placeholder="이미지">
-			<label for="eventImgSrc">이미지</label>
-		</div> --%>
-		<img src=""${pageContext.request.contextPath}/uploadimage/<%=eventImgSrc%>"  width="500px"
- 	 	height="500px">
+
+		<div class="inputBox">
+			<img src="/filePath/event/${eventPostVO.eventImgSrc }" width="100%">
+		</div>
+
 		<div class="button">
 			<input type="submit" value="수정" > 
 			<input type="button" value="삭제" onclick="location.href='${contextPath}/eventpost/removeEventPost.do?eventKey=${eventPostVO.eventKey}'">

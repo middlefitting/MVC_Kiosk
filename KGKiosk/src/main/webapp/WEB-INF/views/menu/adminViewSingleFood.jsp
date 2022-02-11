@@ -49,7 +49,7 @@
 			<label for="foodInfo">제품 설명</label>
 		</div>
 		<div class="inputBox">
-			<input type="text" name="foodImg" id="foodImg" value="${foodVO.foodImg }" size="40"placeholder="이미지">
+			<img src="/filePath/food/${foodVO.foodImg }" width="100%">
 			<label for="foodImg">이미지</label>
 		</div>
 		<input type="hidden" name="foodKey" id="foodKey" value="${foodVO.foodKey }">

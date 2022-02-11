@@ -11,6 +11,7 @@ public class CartVO {
 	private String foodImg;
 	private String foodPrice;
 	private String foodCount;
+	private String addedPrice;
 	
 	public String getCartId() {
 		return cartId;
@@ -54,6 +55,10 @@ public class CartVO {
 	public void setFoodCount(String foodCount) {
 		this.foodCount = foodCount;
 	}
-	
-	
+	public String getAddedPrice() {
+		return addedPrice;
+	}
+	public void setAddedPrice(String addedPrice) {
+		this.addedPrice = addedPrice;
+	}
 }

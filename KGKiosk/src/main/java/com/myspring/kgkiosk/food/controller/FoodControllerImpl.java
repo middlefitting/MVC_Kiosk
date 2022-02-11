@@ -1,5 +1,6 @@
 package com.myspring.kgkiosk.food.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import com.myspring.kgkiosk.food.vo.FoodVO;
 
 @Controller("FoodController")
 public class FoodControllerImpl implements FoodController{
-
+	private static final String ARTICLE_IMAGE_REPO = "C:\\kgImage\\image";
 	@Autowired
 	private FoodService foodService;
 	@Autowired
@@ -60,19 +62,19 @@ public class FoodControllerImpl implements FoodController{
 		HttpSession session = request.getSession();
 		
 		if(viewName.contains("pizza")) {
-			foodVO.setFoodCategory("««¿⁄");
+			foodVO.setFoodCategory("ÌîºÏûê");
 		}
 		else if(viewName.contains("side")) {
-			foodVO.setFoodCategory("ªÁ¿ÃµÂ");
+			foodVO.setFoodCategory("ÏÇ¨Ïù¥Îìú");
 		}
 		else if(viewName.contains("beverage")) {
-			foodVO.setFoodCategory("¿Ω∑·");
+			foodVO.setFoodCategory("ÏùåÎ£å");
 		}
 		else {
-			foodVO.setFoodCategory("««¿⁄");
+			foodVO.setFoodCategory("ÌîºÏûê");
 		}
 		
-		//¡÷πÆ ≈∏¿‘
+		//ÔøΩ÷πÔøΩ ≈∏ÔøΩÔøΩ
 		if(viewName.contains("delivery")) {
 			session.setAttribute("orderType", "delivery");
 		}
@@ -133,8 +135,17 @@ public class FoodControllerImpl implements FoodController{
 		foodVO.setFoodKey(foodKey);
 		
 		ModelAndView mav = new ModelAndView("redirect:/food/listAllFoodList.do");
+		
+		
+		String imageFileName= foodVO.getFoodImg();		
 		int result = 0;
 		result = foodService.addFood(foodVO);
+		if(imageFileName!=null && imageFileName.length()!=0) {
+			File srcFile = new 
+			File(ARTICLE_IMAGE_REPO+ "\\" + "toUpload"+ "\\" + imageFileName);
+			File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+"food");
+			FileUtils.moveFileToDirectory(srcFile, destDir,true);
+		}
 		mav.addObject("result", result);
 		return mav;
 	}
