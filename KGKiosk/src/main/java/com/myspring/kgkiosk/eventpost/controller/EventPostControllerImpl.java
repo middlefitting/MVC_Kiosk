@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.complaintpost.vo.ComplaintPostVO;
@@ -89,14 +91,33 @@ public class EventPostControllerImpl implements EventPostController{
 		return mav;
 	}
 
+	/*
+	 * @Override
+	 * 
+	 * @RequestMapping(value = "/eventpost/addEventPost.do", method =
+	 * RequestMethod.POST) public ModelAndView addEventPost(EventPostVO eventPostVO,
+	 * HttpServletRequest request, HttpServletResponse response) throws Exception {
+	 * SimpleDateFormat format = new SimpleDateFormat("yy_MM_dd_HH_mm_ss"); Date
+	 * time = new Date(); String postKey = "e_" + format.format(time);
+	 * eventPostVO.setEventKey(postKey);
+	 * 
+	 * ModelAndView mav = new
+	 * ModelAndView("redirect:/eventpost/listAllEventPostList.do"); int result = 0;
+	 * result = eventPostService.addEventPost(eventPostVO); mav.addObject("result",
+	 * result); return mav; }
+	 * 
+	 */
+	
 	@Override
 	@RequestMapping(value = "/eventpost/addEventPost.do", method = RequestMethod.POST)
 	public ModelAndView addEventPost(EventPostVO eventPostVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		
 		SimpleDateFormat format = new SimpleDateFormat("yy_MM_dd_HH_mm_ss");
 		Date time = new Date();
 		String postKey = "e_" + format.format(time);
 		eventPostVO.setEventKey(postKey);
+	
 
 		ModelAndView mav = new ModelAndView("redirect:/eventpost/listAllEventPostList.do");
 		int result = 0;
@@ -105,6 +126,9 @@ public class EventPostControllerImpl implements EventPostController{
 		return mav;
 	}
 
+
+	
+	
 	@Override
 	@RequestMapping(value = "/eventpost/modifyEventPost.do", method = RequestMethod.POST)
 	public ModelAndView modifyEventPost(EventPostVO eventPostVO, HttpServletRequest request,

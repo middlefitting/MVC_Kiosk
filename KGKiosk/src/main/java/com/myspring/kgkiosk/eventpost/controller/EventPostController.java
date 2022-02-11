@@ -3,6 +3,7 @@ package com.myspring.kgkiosk.eventpost.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.kgkiosk.eventpost.vo.EventPostVO;

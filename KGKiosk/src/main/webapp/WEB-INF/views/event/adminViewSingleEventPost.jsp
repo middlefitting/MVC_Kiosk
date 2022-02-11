@@ -13,8 +13,34 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/eventFormStyle.css">
+
+<script>
+
+function readURL(input) {
+	
+	if (input.files && input.files[0]){
+				
+		var reader = new FileReader();
+		
+		reader.onload = function(e) {
+			document.getElementById("preview").src = e.target.result;
+		};
+		reader.readAsDataURL(input.files[0]);
+	} else {
+		document.getElementById("preview").src = "";
+	}
+}
+
+</script>
+
+<%-- <%=request.getRealPath("/") %> --%>
+
 </head>
 <body>
+<%
+String eventImgSrc = request.getParameter("eventImgSrc"); //이미지 주소 받기
+%>
+	
 <div class="header"><h2>이벤트 수정 및 삭제</h2></div>
 <div class="formDiv">
 	<form name="frmEvent" method="post"  action="${contextPath}/eventpost/modifyEventPost.do">
@@ -27,10 +53,12 @@
 			<textarea rows="3" cols="50" name="eventBody" id="eventBody"placeholder="이벤트 내용">${eventPostVO.eventBody }</textarea>
 			<label for="eventBody">이벤트 내용</label>
 		</div>
-		<div class="inputBox">
+		<%-- <div class="inputBox">
 			<input type="text" name="eventImgSrc" id="eventImgSrc" value="${eventPostVO.eventImgSrc }" size="20"placeholder="이미지">
 			<label for="eventImgSrc">이미지</label>
-		</div>
+		</div> --%>
+		<img src=""${pageContext.request.contextPath}/uploadimage/<%=eventImgSrc%>"  width="500px"
+ 	 	height="500px">
 		<div class="button">
 			<input type="submit" value="수정" > 
 			<input type="button" value="삭제" onclick="location.href='${contextPath}/eventpost/removeEventPost.do?eventKey=${eventPostVO.eventKey}'">

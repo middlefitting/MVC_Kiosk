@@ -13,6 +13,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/eventFormStyle.css">
+
+<script>
+
+function readURL(input) {
+	
+	if (input.files && input.files[0]){
+				
+		var reader = new FileReader();
+		
+		reader.onload = function(e) {
+			document.getElementById("preview").src = e.target.result;
+		};
+		reader.readAsDataURL(input.files[0]);
+	} else {
+		document.getElementById("preview").src = "";
+	}
+}
+
+</script>
+
 </head>
 <body>
 <div class="header"><h2>이벤트 추가</h2></div>
@@ -26,10 +46,17 @@
 			<textarea rows="3" cols="50" name="eventBody" id="eventBody"placeholder="이벤트 내용"></textarea>
 			<label for="eventBody">이벤트 내용</label>
 		</div>
-		<div class="inputBox">
+		<!-- <div class="inputBox">
 			<input type="text" name="eventImgSrc" id="eventImgSrc" value="" size="20"placeholder="이미지">
 			<label for="eventImgSrc">이미지</label>
-		</div>
+		</div> -->
+		
+			<input type="file" name="eventImgSrc" id="eventImgSrc" value="" size="20"placeholder="이미지" onchange="readURL(this);">
+		
+		<tr>
+			<img id = "preview" width = "200"/>
+		</tr>
+		
 		<div class="button">
 			<input type="submit" value="등록" > 
 		</div>
