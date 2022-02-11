@@ -183,10 +183,11 @@ select * from food where foodCategory='피자';
     (cartId VARCHAR2(40) primary key, 
 	id VARCHAR2(20),
     foodKey VARCHAR2(20),
-	foodName VARCHAR2(20),
-	foodImg VARCHAR2(20),
+	foodName VARCHAR2(100),
+	foodImg VARCHAR2(100),
     foodPrice VARCHAR2(10),
-    foodCount VARCHAR2(5)
+    foodCount VARCHAR2(5),
+    addedPrice VARCHAR2(10)
     );
     commit;
 ------------------------------------------
