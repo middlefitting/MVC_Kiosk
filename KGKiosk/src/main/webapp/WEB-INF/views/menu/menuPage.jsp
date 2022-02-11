@@ -64,7 +64,8 @@
 					<div class="thumbImg">
 						<div class="prodImg">
 							<a href="${contextPath}/menu/${foodVO.foodKey}SingleMenu.do?foodKey=${foodVO.foodKey}" style="cursor: pointer;">
-								<div class="img" style="background-image: url('${contextPath}/resources/image/pizzaTest.png');"></div>
+								<%-- <div class="img" style="background-image: url('${contextPath}/resources/image/pizzaTest.png');"></div> --%>
+								<div class="img" style="background-image: url('/filePath/food/${foodVO.foodImg}');"></div>
 								<%-- <div class="img" style="background-image: url('${foodVO.foodImg}');"></div> --%>
 							</a>
 						</div>

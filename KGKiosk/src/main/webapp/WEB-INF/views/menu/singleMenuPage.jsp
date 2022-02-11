@@ -37,7 +37,9 @@
     	<div class="foodName">${foodVO.foodName}</div>
     	<div class="foodInfo">${foodVO.foodInfo}</div>
     	<div class="foodImg">
-    		<div class="prodImg"><div class="img" style="background-image: url('${contextPath}/resources/image/pizzaTest.png');"></div></div>
+    		<%-- <div class="prodImg"><div class="img" style="background-image: url('${contextPath}/resources/image/pizzaTest.png');"></div></div> --%>
+    		<div class="prodImg"><div class="img" style="background-image: url('/filePath/food/${foodVO.foodImg}');"></div></div>
+    		
     	<%-- <div class="foodImg" style="background-image: url('${foodVO.foodInfo}');"></div> --%>
     	</div>
   	</div>

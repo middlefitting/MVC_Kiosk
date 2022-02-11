@@ -46,23 +46,23 @@
 		<div class="slidewrap">
 			<ul class="slidelist">
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_07_23">
 						<label for="slide03" class="left"></label>
-						<img src="${contextPath}/resources/image/slide01.jpg">
+						<img src="${contextPath}/resources/image/eventImg1.PNG">
 						<label for="slide02" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_35_23">
 						<label for="slide01" class="left"></label>
-						<img src="${contextPath}/resources/image/slide02.jpg">
+						<img src="${contextPath}/resources/image/eventImg2.PNG">
 						<label for="slide03" class="right"></label>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath}/eventpost/adminViewSingleEventPost.do?eventKey=e_22_02_11_17_36_17">
 						<label for="slide02" class="left"></label>
-						<img src="${contextPath}/resources/image/slide03.jpg">
+						<img src="${contextPath}/resources/image/eventImg3.PNG" width="800px">
 						<label for="slide01" class="right"></label>
 					</a>
 				</li>

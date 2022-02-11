@@ -13,6 +13,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/foodFormStyle.css">
+<script>
+
+function readURL(input) {
+   
+   if (input.files && input.files[0]){
+            
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+         document.getElementById("preview").src = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+   } else {
+      document.getElementById("preview").src = "";
+   }
+}
+
+</script>
+
 </head>
 <body>
 <div class="header"><h2>메뉴 추가</h2></div>
@@ -50,6 +69,9 @@
 		<div class="inputBox">
 			<input type="file" name="foodImg"  id="foodImg" onchange="readURL(this);" />
 			<label for="eventBody">이미지 추가</label>
+			<div>
+				<img id="preview" width="200">
+			</div>
 		</div>
 		<div class="button">
 			<input type="submit" value="등록" > 

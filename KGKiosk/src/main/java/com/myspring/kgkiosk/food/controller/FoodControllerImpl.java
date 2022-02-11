@@ -143,7 +143,7 @@ public class FoodControllerImpl implements FoodController{
 		if(imageFileName!=null && imageFileName.length()!=0) {
 			File srcFile = new 
 			File(ARTICLE_IMAGE_REPO+ "\\" + "toUpload"+ "\\" + imageFileName);
-			File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+"event");
+			File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+"food");
 			FileUtils.moveFileToDirectory(srcFile, destDir,true);
 		}
 		mav.addObject("result", result);

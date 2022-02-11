@@ -28,8 +28,7 @@
 			<label for="eventBody">이벤트 내용</label>
 		</div>
 		<div class="inputBox">
-			<input type="text" name="eventImgSrc" id="eventImgSrc" value="${eventPostVO.eventImgSrc }" size="20"placeholder="이미지">
-			<label for="eventImgSrc">이미지</label>
+			<img src="/filePath/event/${eventPostVO.eventImgSrc }" width="100%">
 		</div>
 		<div class="button">
 			<input type="submit" value="수정" > 
