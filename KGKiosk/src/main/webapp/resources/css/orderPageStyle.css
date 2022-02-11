@@ -1,0 +1,140 @@
+@charset "UTF-8";
+.all {
+    display:flex;
+    justify-content:space-around;
+}
+
+.orderList {
+    width: 700px;
+    height: 700px;
+    overflow:auto;
+}
+.orderList .header {
+    display:flex;
+    font-weight:bold;
+    list-style-type: none;
+    align-items:center;
+    padding-left: 0px;
+    align-content: center;
+    justify-content: space-around;
+    padding: 30px 0px 0px 20px;
+}
+
+.orderList .subRow.orderName {width:40%;font-weight: bold;}
+.orderList .subRow.orderPrice {width:10%}
+.orderList .subRow.orderCount {width:10%;}
+
+.orderList .row {
+    display:flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0px;
+    align-content: center;
+}
+
+.subRow.title a {
+    text-decoration:none;
+    color:black;
+}
+.subRow.title a:hover {
+    color:#c00727
+}
+  
+.inputBox input{
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #c00727;
+    padding:20px 0px 5px 0px;
+    font-size:14pt;
+    color:#c00727;
+    text-align:center;
+    width:30%;
+    font-family:-webkit-body
+}
+.inputBox input:focus {
+    outline:none;
+}
+.button input {
+    background:#c0072747;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+.submenuLink {
+    width:50px;
+    height:35px;
+    border-radius:5px;
+}
+.submenuLink.end {
+    width:300px;
+    height:50px;
+    border-radius:5px;
+}
+#headerHr {
+    margin:30px 20px 0px 20px;
+    border: solid 1px #c007274a;
+}
+
+.scrollPoint {
+    overflow: auto;
+    height: 500px;
+    padding: 0 16px 0 16px;
+    background-color: #c007270f;
+    border-radius: 15px;
+}
+.orderInfo {
+    padding: 50px 200px 0px;
+    text-align: center;
+}
+.orderInfo .label {
+    padding:20px 60px 10px 0;
+    font-size:18pt;
+    font-weight:bold;
+}
+
+.address {
+    display:flex;
+    padding-left: 10px;
+}
+.totalPrice {
+    display:flex;
+    padding-left: 10px;
+}
+.orderInfo .content {
+    /* font-style:italic; */
+    font-size:15pt;
+    padding:20px 0 10px 0;
+}
+.orderInfo .totalPrice .content {
+    color:#c00727;
+    font-size:20pt;
+}
+.orderInfo .all {
+    justify-content: left;
+}
+.all form {
+    width:700px;
+    text-align:center;
+    display: table;
+}
+.all form .goLeft {
+    text-align:left;
+}
+
+.radioBox {
+    margin-top: 20px;
+}
+
+input[type=submit], input[type=button] {
+    background-color: #23a3a7;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    font-size: 18pt;
+    margin-top: 100px;
+    cursor: pointer;
+    display: table-cell;
+}

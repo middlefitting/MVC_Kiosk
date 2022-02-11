@@ -54,7 +54,7 @@ public class CartControllerImpl implements CartController{
 		String foodName = "";
 		int sum = 0;
 		for(int i=0; i<CartLists.size(); i++) {
-			sum = sum + (Integer.parseInt(((CartVO) CartLists.get(i)).getFoodPrice()) * Integer.parseInt(((CartVO) CartLists.get(i)).getFoodCount()));
+			sum = sum + (Integer.parseInt(((CartVO) CartLists.get(i)).getFoodPrice()) * Integer.parseInt(((CartVO) CartLists.get(i)).getFoodCount()) + Integer.parseInt(((CartVO) CartLists.get(i)).getAddedPrice()));
 			foodName = foodName + "@" + ((CartVO) CartLists.get(i)).getFoodName();
 		}
 		orderPrice = Integer.toString(sum);
@@ -90,10 +90,18 @@ public class CartControllerImpl implements CartController{
 		cartVO.setCartId(memberVO.getId()+cartVO.getFoodKey());
 		
 		int addedPrice = 0;
-		if (size.equals("라지")) addedPrice += 5000;
+		if (size != null) {
+			if (size.equals("라지")) addedPrice += 5000;
+		} else { 
+			size = ""; 
+		}
 		
-		if (edge.equals("치즈크러스트")) { addedPrice += 2000; }
-		else if (edge.equals("리치골드")) { addedPrice += 1000; }
+		if (edge != null) {
+			if (edge.equals("치즈크러스트")) { addedPrice += 2000; }
+			else if (edge.equals("리치골드")) { addedPrice += 1000; }
+		} else {
+			edge = "";
+		}
 		
 		if (topping != null) {
 			if (topping.equals("치즈")) { addedPrice += 1000; }
@@ -108,14 +116,6 @@ public class CartControllerImpl implements CartController{
 		cartVO.setAddedPrice(String.valueOf(addedPrice));
 		
 //		String key = cartVO.getFoodKey();
-		System.out.println("카트VO");
-		System.out.println(cartVO.getCartId());
-		System.out.println(cartVO.getAddedPrice());
-		System.out.println(cartVO.getFoodCount());
-		System.out.println(cartVO.getFoodImg());
-		System.out.println(cartVO.getFoodKey());
-		System.out.println(cartVO.getFoodName());
-		System.out.println(cartVO.getFoodPrice());
 		int result = 0;
 		try {
 			result = cartService.addCart(cartVO);
