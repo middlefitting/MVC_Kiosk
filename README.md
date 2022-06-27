@@ -3,7 +3,7 @@
 ## 1) Language
 - JAVA 8
 
-## 2) Skiils
+## 2) Skills
 - Spring MVC
 - MyBatis
 - Oracle
